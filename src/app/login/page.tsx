@@ -29,6 +29,13 @@ export default function LoginPage() {
         setError("Please fill all fields including Email.");
         return;
       }
+      
+      const phoneRegex = /^\d{10}$/;
+      if (!phoneRegex.test(formData.phone)) {
+        setError("Phone number must be exactly 10 digits (numbers only).");
+        return;
+      }
+
       setLoading(true);
       setError("");
       const { error } = await supabase.auth.signInWithOtp({ email: formData.email });

@@ -7,9 +7,7 @@ export const revalidate = 0; // Disable caching
  * GET /api/prices/current
  *
  * PURE READ — only for grid health, trend, and lights. 
- * The live displayed price is computed by the frontend directly from pricing.ts.
- * This endpoint reads the last 5 Supabase records (which were pushed by the frontend)
- * and returns grid status info (zone color, trend, demand level).
+ * The live displayed price is fetched from Python via Supabase.
  */
 export async function GET() {
   try {
@@ -17,32 +15,48 @@ export async function GET() {
       .from('dynamic_prices')
       .select('*')
       .order('created_at', { ascending: false })
-      .limit(5);
+      .limit(2);
+
+    const fallbackData = {
+      price: 0,
+      time: "No data available",
+      status: "balanced",
+      message: "API or DB error.",
+      trend: "stable",
+      ui: { gridStatusName: "Data Missing", zoneColor: "gray", demandLevel: "Unknown", subtitle: "Awaiting data..." }
+    };
 
     if (error) {
       console.error("Supabase Error:", error);
-      return NextResponse.json({ error: error.message }, { status: 500 });
+      return NextResponse.json(fallbackData, { status: 200 }); // Safe fallback
     }
 
     if (!prices || prices.length === 0) {
-      return NextResponse.json({ error: "No price data found" }, { status: 404 });
+      return NextResponse.json(fallbackData, { status: 200 }); // Safe fallback
     }
 
     const currentPriceData = prices[0];
     const currentPrice = Number(currentPriceData.price);
 
-    // Analyze trend (comparison between newest and oldest of last 5)
+    // Analyze trend (comparison between newest and previous)
     let isTrendRising = false;
+    let trendLabel = "stable";
+    
     if (prices.length > 1) {
-      const oldPrice = Number(prices[prices.length - 1].price);
-      if (currentPrice > oldPrice) isTrendRising = true;
+      const oldPrice = Number(prices[1].price);
+      if (currentPrice > oldPrice) {
+        isTrendRising = true;
+        trendLabel = "rising";
+      } else if (currentPrice < oldPrice) {
+        trendLabel = "falling";
+      }
     }
 
     // Determine grid zone
     let gridStatusName = "Grid Stable";
     let zoneColor = "green";
     let demandLevel = "Low Demand";
-    let subtitle = `Load ${isTrendRising ? '↑' : '↓'} ${Math.floor(Math.random() * 5 + 1)}% in last 10 min · Voltage stable at 231V`;
+    let subtitle = `Load ${isTrendRising ? '↑' : '↓'} ${Math.floor(Math.random() * 5 + 1)}% in last 30 min · Voltage stable`;
 
     if (currentPrice >= 3 && currentPrice < 5) {
       gridStatusName = "Grid Stable"; zoneColor = "green"; demandLevel = "Low Demand";
@@ -59,7 +73,7 @@ export async function GET() {
     }
 
     let generalMessage = "System is stable.";
-    let statusLabel: "surplus" | "shortage" | "balanced" = "balanced";
+    let statusLabel = "balanced";
     if (zoneColor === "green") {
       statusLabel = "surplus"; generalMessage = "Electricity is cheaper now. Off-peak hours.";
     } else if (zoneColor === "red") {
@@ -78,13 +92,19 @@ export async function GET() {
       time: timeString,
       status: statusLabel,
       message: generalMessage,
-      trend: isTrendRising ? "rising" : "falling",
+      trend: trendLabel,
       ui: { gridStatusName, zoneColor, demandLevel, subtitle }
     });
 
   } catch (err: any) {
     console.error("API error:", err);
-    return NextResponse.json({ error: "Internal Server Error" }, { status: 500 });
+    return NextResponse.json({
+      price: 0,
+      time: "No data available",
+      status: "balanced",
+      message: "Internal Server Error",
+      trend: "stable",
+      ui: { gridStatusName: "Error", zoneColor: "gray", demandLevel: "Error", subtitle: "System failure" }
+    }, { status: 200 }); // Safe fallback
   }
 }
-

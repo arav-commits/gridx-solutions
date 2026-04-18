@@ -4,6 +4,9 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime, timezone, timedelta
+import os
+import sys
+from supabase import create_client
 
 from pricing import compute_price_by_index, get_dataset_length, DATA
 
@@ -13,6 +16,14 @@ IST = timezone(timedelta(hours=5, minutes=30))
 # --- LOGGING ---   
 logger = logging.getLogger("gridx")
 logging.basicConfig(level=logging.INFO)
+
+# --- SUPABASE INIT ---
+SUPABASE_URL = os.environ.get("SUPABASE_URL")
+SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY")
+if not SUPABASE_URL or not SUPABASE_SERVICE_ROLE_KEY:
+    raise ValueError("CRITICAL: Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY environment variables.")
+
+supabase = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
 
 app = FastAPI()
 
@@ -79,6 +90,49 @@ def update_price():
 
         logger.info(f"[UPDATE] {row['time']} | Price: ₹{price} | {status.upper()}")
 
+        # --- DUPLICATE INSERT PREVENTION ---
+        prevent_insert = False
+        try:
+            res = supabase.table("dynamic_prices").select("created_at").order("created_at", desc=True).limit(1).execute()
+            if res.data and len(res.data) > 0:
+                last_time_str = res.data[0]["created_at"]
+                last_time = datetime.fromisoformat(last_time_str.replace('Z', '+00:00'))
+                utc_now = datetime.now(timezone.utc)
+                
+                # Exact time-block comparison
+                is_same_block = (
+                    last_time.year == utc_now.year and
+                    last_time.month == utc_now.month and
+                    last_time.day == utc_now.day and
+                    last_time.hour == utc_now.hour and
+                    (last_time.minute // 30) == (utc_now.minute // 30)
+                )
+                
+                if is_same_block:
+                    prevent_insert = True
+                    logger.info("Duplicate insert prevented: exact time block already satisfied.")
+        except Exception as e:
+            logger.warning(f"Failed to check duplicates, proceeding: {e}")
+
+        # --- SUPABASE INSERT WITH RETRY ---
+        if not prevent_insert:
+            data_to_insert = {
+                "price": price,
+                "demand": demand,
+                "supply": supply,
+                "created_at": datetime.now(timezone.utc).isoformat()
+            }
+            try:
+                supabase.table("dynamic_prices").insert(data_to_insert).execute()
+                logger.info("Successfully inserted price to Supabase")
+            except Exception as insert_e:
+                logger.error(f"Supabase insert failed, retrying once... {insert_e}")
+                try:
+                    supabase.table("dynamic_prices").insert(data_to_insert).execute()
+                    logger.info("Successfully inserted price to Supabase on retry")
+                except Exception as retry_e:
+                    logger.error(f"Supabase insert failed on retry: {retry_e}")
+
     except Exception as e:
         logger.error(f"Scheduler job failed: {e}", exc_info=True)
 
@@ -90,8 +144,8 @@ scheduler = BackgroundScheduler()
 def start_scheduler():
     # misfire_grace_time + max_instances prevent stall on overrun (Finding #12)
     scheduler.add_job(
-        update_price, 'interval', seconds=5,
-        misfire_grace_time=1, max_instances=1
+        update_price, 'cron', minute='0,30',
+        misfire_grace_time=60, max_instances=1, replace_existing=True
     )
     scheduler.start()
     # Run once immediately so state is valid from the first request
@@ -125,11 +179,20 @@ def get_price():
 # --- HEALTH ENDPOINT (Finding #13) ---
 @app.get("/health")
 def health():
-    job = scheduler.get_jobs()[0] if scheduler.get_jobs() else None
-    with state_lock:
+    try:
+        job = scheduler.get_jobs()[0] if scheduler.get_jobs() else None
+        with state_lock:
+            return {
+                "scheduler_running": scheduler.running,
+                "last_updated": state["last_updated"],
+                "system_status": "ok",
+                "next_run": str(job.next_run_time) if job else None,
+                "current_index": _get_current_index(),
+            }
+    except Exception as e:
+        logger.error(f"Health check error: {e}")
         return {
-            "scheduler_running": scheduler.running,
-            "next_run": str(job.next_run_time) if job else None,
-            "last_updated": state["last_updated"],
-            "current_index": _get_current_index(),
+            "scheduler_running": False,
+            "last_updated": None,
+            "system_status": "error"
         }
