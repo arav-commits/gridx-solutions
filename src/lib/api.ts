@@ -1,12 +1,24 @@
 // src/lib/api.ts
-const BASE_URL = "https://sift-stank-chair.ngrok-free.dev";
+
+// Finding #09 — use env var instead of hardcoded ngrok URL; default to localhost for dev.
+const BASE_URL =
+  process.env.NEXT_PUBLIC_PYTHON_API_URL ?? "http://localhost:8000";
 
 export async function getPrice() {
-  const res = await fetch(`${BASE_URL}/price`, {
-    cache: "no-store",
-  });
+  // Finding: add AbortController timeout (5 s) to prevent indefinite hangs
+  const ctrl = new AbortController();
+  const timeoutId = setTimeout(() => ctrl.abort(), 5000);
 
-  if (!res.ok) throw new Error("API failed");
+  try {
+    const res = await fetch(`${BASE_URL}/price`, {
+      cache: "no-store",
+      signal: ctrl.signal,
+    });
 
-  return res.json();
+    if (!res.ok) throw new Error("API failed");
+
+    return res.json();
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }

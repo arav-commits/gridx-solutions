@@ -44,6 +44,7 @@ export type PriceData = {
   status: "surplus" | "shortage" | "balanced";
   message: string;
   last_updated: string;
+  offPeak?: boolean; // Finding #20 — true when outside the dataset range
 };
 
 function parseTimeToMinutes(timeStr: string): number {
@@ -75,15 +76,12 @@ export function getCurrentPricingData(): PriceData {
   // Find the matching row in data
   let matchedRow = PRICING_DATA.find((row) => parseTimeToMinutes(row.time) === intervalMinutes);
 
-  // Fallback to closest or default
+  // --- Finding #20: detect off-peak gap (12:30 AM – 6:59 AM) ---
+  let offPeak = false;
   if (!matchedRow) {
-    // If we're between 12:30 AM and 6:30 AM, just use 7:00 AM as a fallback or 12:00 AM.
-    // Let's just fallback to the last item (12:00 AM) if before 7:00 AM
-    if (intervalMinutes < parseTimeToMinutes("7:00 AM")) {
-      matchedRow = PRICING_DATA[PRICING_DATA.length - 1]; // 12:00 AM
-    } else {
-      matchedRow = PRICING_DATA[PRICING_DATA.length - 1]; // fallback
-    }
+    offPeak = true;
+    // Fallback to the 12:00 AM row (last entry)
+    matchedRow = PRICING_DATA[PRICING_DATA.length - 1];
   }
 
   const demand = matchedRow.demand;
@@ -114,11 +112,17 @@ export function getCurrentPricingData(): PriceData {
     message = "System is stable.";
   }
 
+  // Override message for off-peak hours
+  if (offPeak) {
+    message = "Off-peak hours — showing last known rate.";
+  }
+
   return {
     time: matchedRow.time,
     price,
     status,
     message,
     last_updated: now.toLocaleTimeString("en-IN", { hour: "2-digit", minute: "2-digit" }),
+    offPeak,
   };
 }

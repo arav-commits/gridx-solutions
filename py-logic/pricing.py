@@ -1,5 +1,9 @@
 # pricing.py
 
+import math
+
+MAX_PRICE = 15.0
+
 DATA = [
     {"time": "7:00 AM","demand": 13.2,"supply": 8.0,"pbase": 8.04},
     {"time": "7:30 AM","demand": 10.7,"supply": 13.4,"pbase": 3.41},
@@ -38,12 +42,24 @@ DATA = [
     {"time": "12:00 AM","demand": 9.6,"supply": 8.6,"pbase": 5.12},
 ]
 
+# --- DATA VALIDATION AT IMPORT TIME ---
+# Ensures no corrupted rows can slip through and crash the scheduler later.
+for _i, _row in enumerate(DATA):
+    for _key in ("demand", "supply", "pbase"):
+        _val = _row[_key]
+        if not isinstance(_val, (int, float)) or math.isnan(_val) or math.isinf(_val):
+            raise ValueError(f"Invalid DATA[{_i}]['{_key}'] = {_val!r}")
+
 
 def get_dataset_length():
     return len(DATA)
 
 
 def compute_price_by_index(index: int):
+    # --- BOUNDS CHECK (Finding #06) ---
+    if not 0 <= index < len(DATA):
+        raise ValueError(f"Out-of-bounds index {index} (dataset length = {len(DATA)})")
+
     row = DATA[index]
 
     d = row["demand"]
@@ -55,6 +71,13 @@ def compute_price_by_index(index: int):
 
     dynamic_impact = d / s
     price = pb + dynamic_impact + 0.50
+
+    # --- NaN / Inf GUARD (Findings #04, #05) ---
+    if math.isnan(price) or math.isinf(price):
+        raise ValueError(f"Invalid price computed: {price} (index={index})")
+
+    # --- PRICE CLAMP (Finding #15) ---
+    price = min(max(price, 0.0), MAX_PRICE)
 
     return round(price, 2)
 
