@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from apscheduler.schedulers.background import BackgroundScheduler
 from datetime import datetime
 
-from pricing import compute_price
+from pricing import compute_price_by_index, get_dataset_length, DATA
 
 app = FastAPI()
 
@@ -16,44 +16,62 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATASET = [
-    {"time": "07:00", "demand": 120, "supply": 100},
-    {"time": "07:30", "demand": 90, "supply": 110},
-    {"time": "08:00", "demand": 140, "supply": 100},
-]
-
+# Global state
 state = {
     "current_price": 3.80,
     "last_updated": None,
-    "index": 0
+    "index": 0,
+    "status": "neutral",
+    "message": "System stable"
 }
 
 
 def update_price():
-    global state
+    index = state["index"]
+    row = DATA[index]
 
-    data = DATASET[state["index"]]
-    price = compute_price(data)
+    demand = row["demand"]
+    supply = row["supply"]
 
+    price = compute_price_by_index(index)
+
+    # --- SYSTEM LOGIC ---
+    if supply > demand:
+        status = "surplus"
+        message = "Electricity is cheaper now. You can increase usage."
+    elif demand > supply:
+        status = "shortage"
+        message = "High demand detected. Reduce usage to save cost."
+    else:
+        status = "balanced"
+        message = "System is stable."
+
+    # --- UPDATE STATE ---
     state["current_price"] = price
     state["last_updated"] = datetime.now().strftime("%H:%M")
+    state["status"] = status
+    state["message"] = message
 
-    print(f"[UPDATE] Time: {data['time']} | Price: ₹{price}")
+    print(f"[UPDATE] {row['time']} | Price: ₹{price} | {status.upper()}")
 
-    state["index"] = (state["index"] + 1) % len(DATASET)
+    state["index"] = (index + 1) % get_dataset_length()
 
 
 scheduler = BackgroundScheduler()
 
 
-# ✅ START scheduler properly
 @app.on_event("startup")
 def start_scheduler():
-    scheduler.add_job(update_price, 'interval', minutes=30)
+    scheduler.add_job(update_price, 'interval', seconds=5)  # simulate 30 mins
     scheduler.start()
 
 
-# Optional but useful
+@app.on_event("shutdown")
+def shutdown_scheduler():
+    scheduler.shutdown()
+
+
+# Routes
 @app.get("/")
 def root():
     return {"status": "API running"}
@@ -62,6 +80,9 @@ def root():
 @app.get("/price")
 def get_price():
     return {
-        "value": state["current_price"],
+        "time": DATA[state["index"]]["time"],
+        "price": state["current_price"],
+        "status": state["status"],
+        "message": state["message"],
         "last_updated": state["last_updated"]
     }

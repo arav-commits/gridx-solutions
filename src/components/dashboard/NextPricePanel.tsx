@@ -5,53 +5,42 @@ import { GlassCard } from "../ui/GlassCard";
 import { BsClockHistory, BsArrowDown } from "react-icons/bs";
 import { getSecondsUntilNextInterval } from "@/utils/time";
 
+import { getCurrentPricingData } from "@/lib/pricing";
+
 export function NextPricePanel() {
   const [timeLeft, setTimeLeft] = useState(0);
   const [price, setPrice] = useState<number | null>(null);
   const [status, setStatus] = useState<string>("Off-Peak");
 
   // ⏱️ Timer logic (your existing code)
- useEffect(() => {
-  const updateTime = () => {
-    setTimeLeft(getSecondsUntilNextInterval());
-  };
-
-  updateTime(); // initial sync
-
-  const interval = setInterval(updateTime, 1000);
-
-  return () => clearInterval(interval);
-}, []);
-
-  // 🌐 Fetch dynamic price from backend
-  const fetchPrice = async () => {
-    try {
-      const res = await fetch("http://127.0.0.1:8000/price");
-      const data = await res.json();
-
-      setPrice(data.value);
-
-      // Optional logic (you can refine this later)
-      if (data.value <= 4) setStatus("Off-Peak");
-      else setStatus("Peak");
-    } catch (err) {
-      console.error("Failed to fetch price:", err);
-    }
-  };
-
   useEffect(() => {
-  const loadPrice = async () => {
-    await fetchPrice();
-  };
+    const updateTime = () => {
+      setTimeLeft(getSecondsUntilNextInterval());
+    };
 
-  loadPrice();
+    updateTime(); // initial sync
 
-  const interval = setInterval(() => {
-    loadPrice();
-  }, 5000);
+    const interval = setInterval(updateTime, 1000);
 
-  return () => clearInterval(interval);
-}, []);
+    return () => clearInterval(interval);
+  }, []);
+
+  // 🌐 Dynamic price update from local script
+  useEffect(() => {
+    const updatePrice = () => {
+      const data = getCurrentPricingData();
+      setPrice(data.price);
+      // Optional logic (you can refine this later)
+      if (data.price <= 4) setStatus("Off-Peak");
+      else setStatus("Peak");
+    };
+
+    updatePrice();
+
+    const interval = setInterval(updatePrice, 1000); // 1s sync so it updates promptly on interval
+
+    return () => clearInterval(interval);
+  }, []);
 
   const formatTime = (seconds: number) => {
     const mm = Math.floor(seconds / 60);
