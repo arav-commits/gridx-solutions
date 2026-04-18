@@ -25,6 +25,7 @@ type TimelineSlot = {
   price: number | null;
   pending: boolean;
   missing?: boolean;
+  fallback?: boolean;
   isCurrent: boolean;
   isLowest: boolean;
   isPeakDay: boolean;
@@ -100,7 +101,7 @@ export default function Home() {
       const res = await fetch('/api/prices/history', { cache: 'no-store' });
       if (!res.ok) return;
       const json = await res.json();
-      const apiSlots: { label: string; slotIndex: number; price: number | null; pending: boolean; missing?: boolean }[] = json.slots || [];
+      const apiSlots: { label: string; slotIndex: number; price: number | null; pending: boolean; missing?: boolean; fallback?: boolean }[] = json.slots || [];
       const currentSlotIndex: number = json.currentSlotIndex ?? -1;
 
       if (apiSlots.length === 0) {
@@ -129,6 +130,7 @@ export default function Home() {
           price: s.price,
           pending: s.pending,
           missing: s.missing,
+          fallback: s.fallback,
           isCurrent,
           isLowest,
           isPeakDay,
