@@ -15,11 +15,11 @@ from price_data import compute_price_by_index, get_dataset_length, DATA
 from supabase import create_client
 
 SUPABASE_URL = os.getenv("NEXT_PUBLIC_SUPABASE_URL") or os.getenv("SUPABASE_URL")
-# Prefer service role key for backend operations
-SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY") or os.getenv("NEXT_PUBLIC_SUPABASE_ANON_KEY")
+# The worker REQUIRES the Service Role Key to bypass insert RLS on dynamic_prices.
+SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 
 if not SUPABASE_URL or not SUPABASE_KEY:
-    print("❌ ERROR: Missing Supabase environment variables.")
+    print("⚠️ WARNING: SUPABASE_SERVICE_ROLE_KEY missing from .env. Using hardcoded service key fallback for writes.")
     # For local test transition, if .env is missing, we fallback to hardcoded (NOT RECOMMENDED for production)
     SUPABASE_URL = "https://jijcogmlrmiznurassuc.supabase.co"
     SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImppamNvZ21scm1pem51cmFzc3VjIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NjQ3NDQyMCwiZXhwIjoyMDkyMDUwNDIwfQ.eXVPuBzGsmqTVtRSfWejEtDAHRWv-HQGdAV34wrbj0c"
