@@ -30,8 +30,8 @@ export default function MyDevicesPage() {
   return (
     <div className="min-h-screen flex flex-col bg-[color:var(--background)] transition-colors duration-500 relative overflow-x-hidden">
       {/* Background Decor */}
-      <div className="fixed top-[-5%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/20 dark:bg-blue-900/10 blur-[100px] -z-10 pointer-events-none"></div>
-      <div className="fixed bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-100/20 dark:bg-emerald-900/5 blur-[100px] -z-10 pointer-events-none"></div>
+      <div className="fixed top-[-5%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-100/20 dark:bg-blue-900/20 blur-[100px] -z-10 pointer-events-none"></div>
+      <div className="fixed bottom-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-100/20 dark:bg-emerald-900/15 blur-[100px] -z-10 pointer-events-none"></div>
 
       <Navbar />
 
@@ -40,9 +40,9 @@ export default function MyDevicesPage() {
           <div>
             <div className="flex items-center gap-2 mb-2">
               <div className="w-1.5 h-6 bg-[color:var(--color-azure)] rounded-full" />
-              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-300">Connected Intelligence</p>
+              <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 dark:text-slate-300">Device Management</p>
             </div>
-            <h1 className="text-4xl font-extrabold font-display text-[color:var(--color-azure)] tracking-tight">IoT Device Hub</h1>
+            <h1 className="text-4xl font-extrabold font-display text-[color:var(--color-azure)] tracking-tight">My Devices</h1>
             <p className="text-slate-500 dark:text-slate-400 font-medium max-w-md mt-2">Manage your connected appliances and optimize energy consumption in real-time.</p>
           </div>
           
@@ -87,7 +87,7 @@ export default function MyDevicesPage() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-700 dark:text-slate-200 font-display tracking-tight">System Performance</h3>
-                <p className="text-sm text-slate-400 dark:text-slate-300 font-medium">Auto-balancing protocol active across {devices.filter(d => d.status === "ON").length} devices.</p>
+                <p className="text-sm text-slate-400 dark:text-slate-300 font-medium">Smart optimization active across {devices.filter(d => d.status === "ON").length} devices.</p>
               </div>
             </div>
             

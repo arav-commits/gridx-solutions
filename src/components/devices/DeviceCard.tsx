@@ -38,7 +38,7 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
           {/* Status Indicator Light */}
           <div className="absolute top-4 right-4 flex items-center gap-1.5">
             <div className={`w-2 h-2 rounded-full ${isOn ? "bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse" : "bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.5)]"}`} />
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300">{status}</span>
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-300">{isOn ? "Online" : "Offline"}</span>
           </div>
 
           <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-4 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 ${isOn ? "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-500" : "bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-300"}`}>
@@ -50,7 +50,7 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
 
           <div className="mt-auto w-full space-y-3">
             <div className="flex items-center justify-between bg-white/20 dark:bg-black/10 rounded-xl p-2 px-3 border border-white/20">
-              <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400">IoT State</span>
+              <span className="text-[10px] font-black uppercase text-slate-500 dark:text-slate-400">Power Status</span>
               <button 
                 onClick={(e) => { e.stopPropagation(); onToggle(id); }}
                 className={`transition-colors duration-300 ${isOn ? "text-emerald-500" : "text-slate-300 dark:text-slate-600"}`}
@@ -68,7 +68,7 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
                   : "bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-300 cursor-not-allowed border border-slate-200 dark:border-slate-700"
               }`}
             >
-              Take Action <BsArrowUpRight strokeWidth={1.5} />
+              View Details <BsArrowUpRight strokeWidth={1.5} />
             </button>
           </div>
         </GlassCard>
@@ -92,8 +92,8 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
               <div>
                 <div className="flex items-center gap-3 mb-1">
                   <h2 className="text-3xl font-black font-display text-[color:var(--color-azure)] tracking-tight">{name}</h2>
-                  <div className="flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-black uppercase tracking-wider border border-emerald-100 dark:border-emerald-800">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" /> Connected
+                  <div className={`flex items-center gap-2 px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider border ${isOn ? "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border-emerald-100 dark:border-emerald-800" : "bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 border-red-100 dark:border-red-800"}`}>
+                    <span className={`w-1.5 h-1.5 rounded-full ${isOn ? "bg-emerald-500" : "bg-red-500"}`} /> {isOn ? "Online" : "Offline"}
                   </div>
                 </div>
                 <p className="text-slate-400 dark:text-slate-300 font-bold uppercase text-xs tracking-[0.2em]">{type} Node &middot; {id}</p>
@@ -103,7 +103,7 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
             <div className="bg-white/50 dark:bg-slate-800/30 rounded-3xl p-6 border border-white/50 dark:border-slate-700/50 shadow-inner mb-8">
               <div className="flex items-center gap-2 mb-4 text-slate-500 dark:text-slate-400">
                 <BsLightningCharge size={14} className="text-yellow-500" />
-                <h4 className="text-xs font-black uppercase tracking-widest">Efficiency Protocols</h4>
+                <h4 className="text-xs font-black uppercase tracking-widest">Smart Optimizations</h4>
               </div>
               <ul className="space-y-4">
                 {optimizationTips.map((tip, i) => (
@@ -119,8 +119,8 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
 
             <div className="flex items-center justify-between p-6 bg-[color:var(--color-azure)] rounded-3xl shadow-xl">
               <div className="text-white">
-                <p className="text-[10px] font-black uppercase tracking-widest opacity-70 mb-1">Global IoT Power Control</p>
-                <h4 className="text-lg font-bold">Remote Access Portal</h4>
+                <p className="text-[10px] font-black uppercase tracking-widest opacity-70 mb-1">Device Power Control</p>
+                <h4 className="text-lg font-bold">Power Management</h4>
               </div>
               <button 
                 onClick={() => onToggle(id)}
@@ -130,7 +130,7 @@ export function DeviceCard({ id, name, type, status, optimizationTips, onToggle 
                     : "bg-emerald-500 hover:bg-emerald-600 text-white shadow-lg"
                 }`}
               >
-                {isOn ? "Disconnect Device" : "Initialize Link"}
+                {isOn ? "Power Off" : "Power On"}
               </button>
             </div>
             

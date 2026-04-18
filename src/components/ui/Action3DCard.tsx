@@ -11,11 +11,15 @@ interface Action3DCardProps {
   savingText: string;
   savingValue: string;
   savingUnit?: string;
-  savingColor: string; 
-  savingBgLine: string; 
-  progress: number; 
+  savingColor: string;
+  savingBgLine: string;
+  progress: number;
   icon: React.ReactNode;
   iconBgColor: string;
+  /** Action-based CTA label derived from price context (e.g. "Start Now", "Avoid Now"). */
+  cta?: string;
+  /** Optional click handler — used by ActionEngine to navigate to /devices. */
+  onCtaClick?: () => void;
 }
 
 export function Action3DCard({
@@ -31,6 +35,8 @@ export function Action3DCard({
   progress,
   icon,
   iconBgColor,
+  cta,
+  onCtaClick,
 }: Action3DCardProps) {
   const isApplied = status === "APPLIED";
   const expired = isTimeExpired(timeWindow) && !isApplied;
@@ -89,6 +95,7 @@ export function Action3DCard({
 
         {/* Action Button */}
         <button
+          onClick={onCtaClick}
           className={`mt-2 w-full py-3 rounded-xl font-bold transition-all duration-300 transform active:scale-95 ${
             isApplied
               ? "bg-emerald-50 dark:bg-emerald-900/20 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50"
@@ -97,10 +104,10 @@ export function Action3DCard({
         >
           {isApplied ? (
             <span className="flex items-center justify-center gap-2">
-               Applied Checkmark
+              {cta ?? "✓ Applied"}
             </span>
           ) : (
-            "Review Suggestion"
+            cta ?? "Review Suggestion"
           )}
         </button>
       </div>
