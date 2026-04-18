@@ -1,0 +1,589 @@
+City,Time,Demand (D),Supply (S),Pbase (Govt),Dynamic Impact,Pcustomer (Final),Status
+Delhi,12:00 AM,3.6 GW,5.8 GW,₹4.01,₹0.62,₹5.13,Night Load
+Delhi,12:30 AM,3.5 GW,5.7 GW,₹3.97,₹0.61,₹5.08,Night Load
+Delhi,01:00 AM,3.4 GW,5.6 GW,₹3.88,₹0.61,₹4.99,Night Load
+Delhi,01:30 AM,3.6 GW,5.8 GW,₹3.85,₹0.62,₹4.97,Night Load
+Delhi,02:00 AM,3.5 GW,5.4 GW,₹3.77,₹0.65,₹4.92,Night Load
+Delhi,02:30 AM,3.7 GW,5.8 GW,₹3.76,₹0.64,₹4.90,Night Load
+Delhi,03:00 AM,3.4 GW,5.6 GW,₹3.78,₹0.61,₹4.89,Night Load
+Delhi,03:30 AM,3.5 GW,5.1 GW,₹3.69,₹0.69,₹4.88,Night Load
+Delhi,04:00 AM,3.4 GW,5.1 GW,₹3.62,₹0.67,₹4.79,Night Load
+Delhi,04:30 AM,3.5 GW,5.0 GW,₹3.65,₹0.70,₹4.85,Night Load
+Delhi,05:00 AM,3.4 GW,5.4 GW,₹3.53,₹0.63,₹4.66,Night Load
+Delhi,05:30 AM,3.3 GW,4.8 GW,₹3.48,₹0.69,₹4.67,Night Load
+Delhi,06:00 AM,5.4 GW,5.6 GW,₹3.92,₹0.96,₹5.38,Morning Rise
+Delhi,06:30 AM,5.4 GW,6.5 GW,₹4.46,₹0.83,₹5.79,Morning Rise
+Delhi,07:00 AM,5.6 GW,7.6 GW,₹5.05,₹0.74,₹6.29,Morning Rise
+Delhi,07:30 AM,5.3 GW,8.6 GW,₹5.48,₹0.62,₹6.60,Morning Rise
+Delhi,08:00 AM,5.4 GW,9.6 GW,₹5.89,₹0.56,₹6.95,Morning Rise
+Delhi,08:30 AM,5.4 GW,10.6 GW,₹6.54,₹0.51,₹7.55,Morning Rise
+Delhi,09:00 AM,5.3 GW,11.0 GW,₹7.01,₹0.48,₹7.99,Morning Rise
+Delhi,09:30 AM,5.6 GW,13.0 GW,₹7.55,₹0.43,₹8.48,Morning Rise
+Delhi,10:00 AM,6.3 GW,13.8 GW,₹6.05,₹0.46,₹7.01,High Solar/Afternoon Load
+Delhi,10:30 AM,6.5 GW,15.2 GW,₹4.58,₹0.43,₹5.51,High Solar/Afternoon Load
+Delhi,11:00 AM,6.7 GW,16.4 GW,₹3.34,₹0.41,₹4.25,High Solar/Afternoon Load
+Delhi,11:30 AM,6.5 GW,17.2 GW,₹1.97,₹0.38,₹2.85,High Solar/Afternoon Load
+Delhi,12:00 PM,6.7 GW,18.5 GW,₹1.77,₹0.36,₹2.63,High Solar/Afternoon Load
+Delhi,12:30 PM,6.4 GW,19.3 GW,₹1.88,₹0.33,₹2.71,High Solar/Afternoon Load
+Delhi,01:00 PM,6.6 GW,19.2 GW,₹2.00,₹0.34,₹2.84,High Solar/Afternoon Load
+Delhi,01:30 PM,6.8 GW,18.5 GW,₹2.04,₹0.37,₹2.91,High Solar/Afternoon Load
+Delhi,02:00 PM,6.4 GW,18.0 GW,₹2.16,₹0.36,₹3.02,High Solar/Afternoon Load
+Delhi,02:30 PM,6.3 GW,17.4 GW,₹2.28,₹0.36,₹3.14,High Solar/Afternoon Load
+Delhi,03:00 PM,6.8 GW,17.3 GW,₹2.31,₹0.39,₹3.20,High Solar/Afternoon Load
+Delhi,03:30 PM,6.4 GW,17.6 GW,₹2.40,₹0.36,₹3.26,High Solar/Afternoon Load
+Delhi,04:00 PM,6.4 GW,18.0 GW,₹2.50,₹0.36,₹3.36,High Solar/Afternoon Load
+Delhi,04:30 PM,6.5 GW,14.6 GW,₹3.53,₹0.45,₹4.48,High Solar/Afternoon Load
+Delhi,05:00 PM,8.9 GW,13.0 GW,₹5.61,₹0.68,₹6.79,Sunset Transition
+Delhi,05:30 PM,9.2 GW,10.0 GW,₹7.73,₹0.92,₹9.15,Sunset Transition
+Delhi,06:00 PM,8.7 GW,7.3 GW,₹10.00,₹1.19,₹11.69,Evening Peak Stress
+Delhi,06:30 PM,8.9 GW,6.2 GW,₹10.00,₹1.44,₹11.94,Evening Peak Stress
+Delhi,07:00 PM,9.4 GW,5.9 GW,₹10.00,₹1.59,₹12.09,Evening Peak Stress
+Delhi,07:30 PM,8.8 GW,5.5 GW,₹10.00,₹1.60,₹12.10,Evening Peak Stress
+Delhi,08:00 PM,8.8 GW,5.0 GW,₹9.86,₹1.76,₹12.12,Evening Peak Stress
+Delhi,08:30 PM,8.7 GW,4.9 GW,₹10.00,₹1.78,₹12.28,Evening Peak Stress
+Delhi,09:00 PM,9.0 GW,5.2 GW,₹10.00,₹1.73,₹12.23,Evening Peak Stress
+Delhi,09:30 PM,9.2 GW,4.8 GW,₹10.00,₹1.92,₹12.42,Evening Peak Stress
+Delhi,10:00 PM,9.1 GW,4.8 GW,₹10.00,₹1.90,₹12.40,Evening Peak Stress
+Delhi,10:30 PM,4.3 GW,5.8 GW,₹7.90,₹0.74,₹9.14,Night Load
+Delhi,11:00 PM,4.5 GW,5.7 GW,₹7.01,₹0.79,₹8.30,Night Load
+Delhi,11:30 PM,4.6 GW,5.7 GW,₹5.91,₹0.81,₹7.22,Night Load
+Delhi,12:00 AM,4.7 GW,6.2 GW,₹4.46,₹0.76,₹5.72,Night Load
+Mumbai,12:00 AM,2.7 GW,4.8 GW,₹3.99,₹0.56,₹5.05,Night Load
+Mumbai,12:30 AM,2.8 GW,4.7 GW,₹4.01,₹0.60,₹5.11,Night Load
+Mumbai,01:00 AM,2.8 GW,4.7 GW,₹3.86,₹0.60,₹4.96,Night Load
+Mumbai,01:30 AM,2.8 GW,4.5 GW,₹3.86,₹0.62,₹4.98,Night Load
+Mumbai,02:00 AM,2.7 GW,4.5 GW,₹3.79,₹0.60,₹4.89,Night Load
+Mumbai,02:30 AM,2.8 GW,4.3 GW,₹3.80,₹0.65,₹4.95,Night Load
+Mumbai,03:00 AM,2.7 GW,4.3 GW,₹3.78,₹0.63,₹4.91,Night Load
+Mumbai,03:30 AM,2.9 GW,4.4 GW,₹3.69,₹0.66,₹4.85,Night Load
+Mumbai,04:00 AM,2.9 GW,4.3 GW,₹3.60,₹0.67,₹4.77,Night Load
+Mumbai,04:30 AM,2.8 GW,4.1 GW,₹3.58,₹0.68,₹4.76,Night Load
+Mumbai,05:00 AM,2.8 GW,4.1 GW,₹3.48,₹0.68,₹4.66,Night Load
+Mumbai,05:30 AM,2.9 GW,3.8 GW,₹3.49,₹0.76,₹4.75,Night Load
+Mumbai,06:00 AM,4.3 GW,4.4 GW,₹3.95,₹0.98,₹5.43,Morning Rise
+Mumbai,06:30 AM,4.2 GW,5.4 GW,₹4.42,₹0.78,₹5.70,Morning Rise
+Mumbai,07:00 AM,4.5 GW,5.7 GW,₹5.02,₹0.79,₹6.31,Morning Rise
+Mumbai,07:30 AM,4.6 GW,6.5 GW,₹5.40,₹0.71,₹6.61,Morning Rise
+Mumbai,08:00 AM,4.6 GW,7.7 GW,₹5.98,₹0.60,₹7.08,Morning Rise
+Mumbai,08:30 AM,4.5 GW,8.4 GW,₹6.61,₹0.54,₹7.65,Morning Rise
+Mumbai,09:00 AM,4.5 GW,8.9 GW,₹7.07,₹0.51,₹8.08,Morning Rise
+Mumbai,09:30 AM,4.2 GW,9.8 GW,₹7.45,₹0.43,₹8.38,Morning Rise
+Mumbai,10:00 AM,5.1 GW,10.7 GW,₹5.91,₹0.48,₹6.89,High Solar/Afternoon Load
+Mumbai,10:30 AM,5.2 GW,12.5 GW,₹4.66,₹0.42,₹5.58,High Solar/Afternoon Load
+Mumbai,11:00 AM,5.3 GW,12.5 GW,₹3.27,₹0.42,₹4.19,High Solar/Afternoon Load
+Mumbai,11:30 AM,5.2 GW,13.6 GW,₹1.97,₹0.38,₹2.85,High Solar/Afternoon Load
+Mumbai,12:00 PM,5.2 GW,15.7 GW,₹1.79,₹0.33,₹2.62,High Solar/Afternoon Load
+Mumbai,12:30 PM,5.4 GW,15.2 GW,₹1.88,₹0.36,₹2.74,High Solar/Afternoon Load
+Mumbai,01:00 PM,5.3 GW,15.1 GW,₹1.99,₹0.35,₹2.84,High Solar/Afternoon Load
+Mumbai,01:30 PM,5.1 GW,14.6 GW,₹2.05,₹0.35,₹2.90,High Solar/Afternoon Load
+Mumbai,02:00 PM,5.0 GW,13.9 GW,₹2.12,₹0.36,₹2.98,High Solar/Afternoon Load
+Mumbai,02:30 PM,5.0 GW,13.9 GW,₹2.27,₹0.36,₹3.13,High Solar/Afternoon Load
+Mumbai,03:00 PM,5.1 GW,13.6 GW,₹2.31,₹0.38,₹3.19,High Solar/Afternoon Load
+Mumbai,03:30 PM,5.3 GW,14.0 GW,₹2.45,₹0.38,₹3.33,High Solar/Afternoon Load
+Mumbai,04:00 PM,5.3 GW,13.5 GW,₹2.51,₹0.39,₹3.40,High Solar/Afternoon Load
+Mumbai,04:30 PM,5.1 GW,12.2 GW,₹3.53,₹0.42,₹4.45,High Solar/Afternoon Load
+Mumbai,05:00 PM,5.0 GW,9.8 GW,₹5.67,₹0.51,₹6.68,Sunset Transition
+Mumbai,05:30 PM,5.0 GW,8.1 GW,₹7.93,₹0.62,₹9.05,Sunset Transition
+Mumbai,06:00 PM,5.2 GW,5.8 GW,₹9.94,₹0.90,₹11.34,Evening Peak Stress
+Mumbai,06:30 PM,5.1 GW,5.1 GW,₹9.86,₹1.00,₹11.36,Evening Peak Stress
+Mumbai,07:00 PM,5.0 GW,4.6 GW,₹9.97,₹1.09,₹11.56,Evening Peak Stress
+Mumbai,07:30 PM,5.3 GW,4.4 GW,₹10.00,₹1.20,₹11.70,Evening Peak Stress
+Mumbai,08:00 PM,5.3 GW,4.1 GW,₹9.87,₹1.29,₹11.66,Evening Peak Stress
+Mumbai,08:30 PM,5.0 GW,3.8 GW,₹10.00,₹1.32,₹11.82,Evening Peak Stress
+Mumbai,09:00 PM,5.4 GW,4.1 GW,₹10.00,₹1.32,₹11.82,Evening Peak Stress
+Mumbai,09:30 PM,5.2 GW,4.1 GW,₹10.00,₹1.27,₹11.77,Evening Peak Stress
+Mumbai,10:00 PM,5.4 GW,4.1 GW,₹10.00,₹1.32,₹11.82,Evening Peak Stress
+Mumbai,10:30 PM,3.6 GW,4.4 GW,₹8.16,₹0.82,₹9.48,Night Load
+Mumbai,11:00 PM,3.5 GW,4.3 GW,₹6.97,₹0.81,₹8.28,Night Load
+Mumbai,11:30 PM,3.8 GW,4.7 GW,₹6.05,₹0.81,₹7.36,Night Load
+Mumbai,12:00 AM,3.4 GW,4.8 GW,₹4.58,₹0.71,₹5.79,Night Load
+Bengaluru,12:00 AM,2.4 GW,4.0 GW,₹3.93,₹0.60,₹5.03,Night Load
+Bengaluru,12:30 AM,2.4 GW,3.9 GW,₹3.92,₹0.62,₹5.04,Night Load
+Bengaluru,01:00 AM,2.5 GW,4.1 GW,₹3.93,₹0.61,₹5.04,Night Load
+Bengaluru,01:30 AM,2.4 GW,4.1 GW,₹3.86,₹0.59,₹4.95,Night Load
+Bengaluru,02:00 AM,2.4 GW,4.1 GW,₹3.79,₹0.59,₹4.88,Night Load
+Bengaluru,02:30 AM,2.3 GW,4.0 GW,₹3.78,₹0.58,₹4.86,Night Load
+Bengaluru,03:00 AM,2.6 GW,3.7 GW,₹3.70,₹0.70,₹4.90,Night Load
+Bengaluru,03:30 AM,2.4 GW,3.8 GW,₹3.70,₹0.63,₹4.83,Night Load
+Bengaluru,04:00 AM,2.6 GW,3.8 GW,₹3.62,₹0.68,₹4.80,Night Load
+Bengaluru,04:30 AM,2.3 GW,3.5 GW,₹3.64,₹0.66,₹4.80,Night Load
+Bengaluru,05:00 AM,2.5 GW,3.6 GW,₹3.53,₹0.69,₹4.72,Night Load
+Bengaluru,05:30 AM,2.5 GW,3.4 GW,₹3.55,₹0.74,₹4.79,Night Load
+Bengaluru,06:00 AM,3.8 GW,3.9 GW,₹4.06,₹0.97,₹5.53,Morning Rise
+Bengaluru,06:30 AM,3.9 GW,4.7 GW,₹4.48,₹0.83,₹5.81,Morning Rise
+Bengaluru,07:00 AM,3.8 GW,5.4 GW,₹4.91,₹0.70,₹6.11,Morning Rise
+Bengaluru,07:30 AM,3.8 GW,6.0 GW,₹5.53,₹0.63,₹6.66,Morning Rise
+Bengaluru,08:00 AM,3.9 GW,6.5 GW,₹6.00,₹0.60,₹7.10,Morning Rise
+Bengaluru,08:30 AM,3.9 GW,7.2 GW,₹6.54,₹0.54,₹7.58,Morning Rise
+Bengaluru,09:00 AM,3.7 GW,7.5 GW,₹7.10,₹0.49,₹8.09,Morning Rise
+Bengaluru,09:30 AM,3.8 GW,8.9 GW,₹7.64,₹0.43,₹8.57,Morning Rise
+Bengaluru,10:00 AM,4.7 GW,10.0 GW,₹6.05,₹0.47,₹7.02,High Solar/Afternoon Load
+Bengaluru,10:30 AM,4.6 GW,10.4 GW,₹4.73,₹0.44,₹5.67,High Solar/Afternoon Load
+Bengaluru,11:00 AM,4.7 GW,10.9 GW,₹3.36,₹0.43,₹4.29,High Solar/Afternoon Load
+Bengaluru,11:30 AM,4.7 GW,12.3 GW,₹1.97,₹0.38,₹2.85,High Solar/Afternoon Load
+Bengaluru,12:00 PM,4.5 GW,13.6 GW,₹1.79,₹0.33,₹2.62,High Solar/Afternoon Load
+Bengaluru,12:30 PM,4.7 GW,12.6 GW,₹1.88,₹0.37,₹2.75,High Solar/Afternoon Load
+Bengaluru,01:00 PM,4.4 GW,12.6 GW,₹1.96,₹0.35,₹2.81,High Solar/Afternoon Load
+Bengaluru,01:30 PM,4.5 GW,12.7 GW,₹2.10,₹0.35,₹2.95,High Solar/Afternoon Load
+Bengaluru,02:00 PM,4.4 GW,12.5 GW,₹2.16,₹0.35,₹3.01,High Solar/Afternoon Load
+Bengaluru,02:30 PM,4.6 GW,12.9 GW,₹2.22,₹0.36,₹3.08,High Solar/Afternoon Load
+Bengaluru,03:00 PM,4.4 GW,11.9 GW,₹2.27,₹0.37,₹3.14,High Solar/Afternoon Load
+Bengaluru,03:30 PM,4.6 GW,12.7 GW,₹2.36,₹0.36,₹3.22,High Solar/Afternoon Load
+Bengaluru,04:00 PM,4.3 GW,12.2 GW,₹2.45,₹0.35,₹3.30,High Solar/Afternoon Load
+Bengaluru,04:30 PM,4.6 GW,10.2 GW,₹3.51,₹0.45,₹4.46,High Solar/Afternoon Load
+Bengaluru,05:00 PM,4.3 GW,8.4 GW,₹5.70,₹0.51,₹6.71,Sunset Transition
+Bengaluru,05:30 PM,4.1 GW,7.0 GW,₹7.94,₹0.59,₹9.03,Sunset Transition
+Bengaluru,06:00 PM,4.3 GW,5.1 GW,₹10.00,₹0.84,₹11.34,Evening Peak Stress
+Bengaluru,06:30 PM,4.4 GW,4.3 GW,₹10.00,₹1.02,₹11.52,Evening Peak Stress
+Bengaluru,07:00 PM,4.4 GW,3.8 GW,₹10.00,₹1.16,₹11.66,Evening Peak Stress
+Bengaluru,07:30 PM,4.3 GW,3.8 GW,₹10.00,₹1.13,₹11.63,Evening Peak Stress
+Bengaluru,08:00 PM,4.3 GW,3.6 GW,₹10.00,₹1.19,₹11.69,Evening Peak Stress
+Bengaluru,08:30 PM,4.4 GW,3.5 GW,₹9.90,₹1.26,₹11.66,Evening Peak Stress
+Bengaluru,09:00 PM,4.0 GW,3.5 GW,₹9.90,₹1.14,₹11.54,Evening Peak Stress
+Bengaluru,09:30 PM,4.1 GW,3.6 GW,₹10.00,₹1.14,₹11.64,Evening Peak Stress
+Bengaluru,10:00 PM,4.4 GW,3.3 GW,₹10.00,₹1.33,₹11.83,Evening Peak Stress
+Bengaluru,10:30 PM,3.0 GW,4.2 GW,₹8.11,₹0.71,₹9.32,Night Load
+Bengaluru,11:00 PM,3.1 GW,3.7 GW,₹6.92,₹0.84,₹8.26,Night Load
+Bengaluru,11:30 PM,3.2 GW,3.9 GW,₹5.88,₹0.82,₹7.20,Night Load
+Bengaluru,12:00 AM,3.2 GW,4.4 GW,₹4.46,₹0.73,₹5.69,Night Load
+Chennai,12:00 AM,2.6 GW,4.5 GW,₹3.99,₹0.58,₹5.07,Night Load
+Chennai,12:30 AM,2.6 GW,4.4 GW,₹3.95,₹0.59,₹5.04,Night Load
+Chennai,01:00 AM,2.7 GW,4.7 GW,₹3.95,₹0.57,₹5.02,Night Load
+Chennai,01:30 AM,2.8 GW,4.6 GW,₹3.86,₹0.61,₹4.97,Night Load
+Chennai,02:00 AM,2.6 GW,4.3 GW,₹3.74,₹0.60,₹4.84,Night Load
+Chennai,02:30 AM,2.7 GW,4.1 GW,₹3.82,₹0.66,₹4.98,Night Load
+Chennai,03:00 AM,2.6 GW,4.1 GW,₹3.73,₹0.63,₹4.86,Night Load
+Chennai,03:30 AM,2.6 GW,4.1 GW,₹3.72,₹0.63,₹4.85,Night Load
+Chennai,04:00 AM,2.5 GW,4.0 GW,₹3.61,₹0.62,₹4.73,Night Load
+Chennai,04:30 AM,2.5 GW,4.1 GW,₹3.58,₹0.61,₹4.69,Night Load
+Chennai,05:00 AM,2.7 GW,3.9 GW,₹3.55,₹0.69,₹4.74,Night Load
+Chennai,05:30 AM,2.7 GW,3.7 GW,₹3.51,₹0.73,₹4.74,Night Load
+Chennai,06:00 AM,4.2 GW,4.5 GW,₹3.98,₹0.93,₹5.41,Morning Rise
+Chennai,06:30 AM,4.3 GW,5.0 GW,₹4.48,₹0.86,₹5.84,Morning Rise
+Chennai,07:00 AM,4.0 GW,5.7 GW,₹5.00,₹0.70,₹6.20,Morning Rise
+Chennai,07:30 AM,4.0 GW,6.4 GW,₹5.42,₹0.62,₹6.54,Morning Rise
+Chennai,08:00 AM,4.4 GW,7.6 GW,₹5.89,₹0.58,₹6.97,Morning Rise
+Chennai,08:30 AM,4.1 GW,8.2 GW,₹6.57,₹0.50,₹7.57,Morning Rise
+Chennai,09:00 AM,4.2 GW,8.4 GW,₹7.13,₹0.50,₹8.13,Morning Rise
+Chennai,09:30 AM,4.3 GW,9.8 GW,₹7.63,₹0.44,₹8.57,Morning Rise
+Chennai,10:00 AM,5.1 GW,10.6 GW,₹6.05,₹0.48,₹7.03,High Solar/Afternoon Load
+Chennai,10:30 AM,5.1 GW,11.5 GW,₹4.61,₹0.44,₹5.55,High Solar/Afternoon Load
+Chennai,11:00 AM,5.0 GW,12.5 GW,₹3.34,₹0.40,₹4.24,High Solar/Afternoon Load
+Chennai,11:30 AM,5.1 GW,13.7 GW,₹1.99,₹0.37,₹2.86,High Solar/Afternoon Load
+Chennai,12:00 PM,4.8 GW,15.1 GW,₹1.80,₹0.32,₹2.62,High Solar/Afternoon Load
+Chennai,12:30 PM,4.8 GW,14.6 GW,₹1.87,₹0.33,₹2.70,High Solar/Afternoon Load
+Chennai,01:00 PM,4.9 GW,14.9 GW,₹2.01,₹0.33,₹2.84,High Solar/Afternoon Load
+Chennai,01:30 PM,4.8 GW,14.5 GW,₹2.05,₹0.33,₹2.88,High Solar/Afternoon Load
+Chennai,02:00 PM,4.8 GW,13.4 GW,₹2.12,₹0.36,₹2.98,High Solar/Afternoon Load
+Chennai,02:30 PM,5.1 GW,13.2 GW,₹2.27,₹0.39,₹3.16,High Solar/Afternoon Load
+Chennai,03:00 PM,4.9 GW,13.2 GW,₹2.31,₹0.37,₹3.18,High Solar/Afternoon Load
+Chennai,03:30 PM,4.7 GW,13.0 GW,₹2.41,₹0.36,₹3.27,High Solar/Afternoon Load
+Chennai,04:00 PM,5.1 GW,13.3 GW,₹2.45,₹0.38,₹3.33,High Solar/Afternoon Load
+Chennai,04:30 PM,4.8 GW,11.3 GW,₹3.53,₹0.42,₹4.45,High Solar/Afternoon Load
+Chennai,05:00 PM,4.7 GW,10.0 GW,₹5.54,₹0.47,₹6.51,Sunset Transition
+Chennai,05:30 PM,4.9 GW,7.7 GW,₹7.73,₹0.64,₹8.87,Sunset Transition
+Chennai,06:00 PM,5.4 GW,5.4 GW,₹10.00,₹1.00,₹11.50,Evening Peak Stress
+Chennai,06:30 PM,5.3 GW,5.0 GW,₹9.90,₹1.06,₹11.46,Evening Peak Stress
+Chennai,07:00 PM,5.1 GW,4.4 GW,₹9.88,₹1.16,₹11.54,Evening Peak Stress
+Chennai,07:30 PM,5.4 GW,4.2 GW,₹10.00,₹1.29,₹11.79,Evening Peak Stress
+Chennai,08:00 PM,5.1 GW,3.8 GW,₹10.00,₹1.34,₹11.84,Evening Peak Stress
+Chennai,08:30 PM,5.4 GW,3.8 GW,₹9.86,₹1.42,₹11.78,Evening Peak Stress
+Chennai,09:00 PM,5.5 GW,4.0 GW,₹9.97,₹1.38,₹11.85,Evening Peak Stress
+Chennai,09:30 PM,5.1 GW,3.8 GW,₹10.00,₹1.34,₹11.84,Evening Peak Stress
+Chennai,10:00 PM,5.6 GW,3.7 GW,₹9.88,₹1.51,₹11.89,Evening Peak Stress
+Chennai,10:30 PM,3.5 GW,4.4 GW,₹8.05,₹0.80,₹9.35,Night Load
+Chennai,11:00 PM,3.4 GW,3.9 GW,₹7.10,₹0.87,₹8.47,Night Load
+Chennai,11:30 PM,3.4 GW,4.3 GW,₹6.05,₹0.79,₹7.34,Night Load
+Chennai,12:00 AM,3.4 GW,4.7 GW,₹4.54,₹0.72,₹5.76,Night Load
+Kolkata,12:00 AM,2.0 GW,3.6 GW,₹3.92,₹0.56,₹4.98,Night Load
+Kolkata,12:30 AM,2.1 GW,3.4 GW,₹4.01,₹0.62,₹5.13,Night Load
+Kolkata,01:00 AM,2.2 GW,3.6 GW,₹3.86,₹0.61,₹4.97,Night Load
+Kolkata,01:30 AM,2.0 GW,3.5 GW,₹3.85,₹0.57,₹4.92,Night Load
+Kolkata,02:00 AM,2.1 GW,3.6 GW,₹3.80,₹0.58,₹4.88,Night Load
+Kolkata,02:30 AM,2.1 GW,3.4 GW,₹3.76,₹0.62,₹4.88,Night Load
+Kolkata,03:00 AM,2.0 GW,3.2 GW,₹3.78,₹0.62,₹4.90,Night Load
+Kolkata,03:30 AM,2.0 GW,3.3 GW,₹3.69,₹0.61,₹4.80,Night Load
+Kolkata,04:00 AM,2.2 GW,3.2 GW,₹3.63,₹0.69,₹4.82,Night Load
+Kolkata,04:30 AM,2.1 GW,3.3 GW,₹3.61,₹0.64,₹4.75,Night Load
+Kolkata,05:00 AM,2.2 GW,3.2 GW,₹3.48,₹0.69,₹4.67,Night Load
+Kolkata,05:30 AM,2.1 GW,2.9 GW,₹3.51,₹0.72,₹4.73,Night Load
+Kolkata,06:00 AM,3.3 GW,3.4 GW,₹4.02,₹0.97,₹5.49,Morning Rise
+Kolkata,06:30 AM,3.3 GW,4.0 GW,₹4.46,₹0.82,₹5.78,Morning Rise
+Kolkata,07:00 AM,3.3 GW,4.7 GW,₹4.91,₹0.70,₹6.11,Morning Rise
+Kolkata,07:30 AM,3.2 GW,5.1 GW,₹5.48,₹0.63,₹6.61,Morning Rise
+Kolkata,08:00 AM,3.3 GW,5.7 GW,₹5.91,₹0.58,₹6.99,Morning Rise
+Kolkata,08:30 AM,3.4 GW,6.5 GW,₹6.50,₹0.52,₹7.52,Morning Rise
+Kolkata,09:00 AM,3.2 GW,6.6 GW,₹7.03,₹0.48,₹8.01,Morning Rise
+Kolkata,09:30 AM,3.4 GW,7.6 GW,₹7.45,₹0.45,₹8.40,Morning Rise
+Kolkata,10:00 AM,3.8 GW,8.4 GW,₹5.91,₹0.45,₹6.86,High Solar/Afternoon Load
+Kolkata,10:30 AM,4.0 GW,9.2 GW,₹4.58,₹0.43,₹5.51,High Solar/Afternoon Load
+Kolkata,11:00 AM,3.8 GW,9.8 GW,₹3.27,₹0.39,₹4.16,High Solar/Afternoon Load
+Kolkata,11:30 AM,4.0 GW,10.1 GW,₹2.03,₹0.40,₹2.93,High Solar/Afternoon Load
+Kolkata,12:00 PM,3.9 GW,11.5 GW,₹1.76,₹0.34,₹2.60,High Solar/Afternoon Load
+Kolkata,12:30 PM,4.1 GW,10.9 GW,₹1.88,₹0.38,₹2.76,High Solar/Afternoon Load
+Kolkata,01:00 PM,3.7 GW,11.8 GW,₹1.97,₹0.31,₹2.78,High Solar/Afternoon Load
+Kolkata,01:30 PM,3.8 GW,11.2 GW,₹2.05,₹0.34,₹2.89,High Solar/Afternoon Load
+Kolkata,02:00 PM,3.8 GW,10.5 GW,₹2.12,₹0.36,₹2.98,High Solar/Afternoon Load
+Kolkata,02:30 PM,3.8 GW,10.7 GW,₹2.22,₹0.36,₹3.08,High Solar/Afternoon Load
+Kolkata,03:00 PM,4.1 GW,10.6 GW,₹2.27,₹0.39,₹3.16,High Solar/Afternoon Load
+Kolkata,03:30 PM,4.1 GW,10.4 GW,₹2.43,₹0.39,₹3.32,High Solar/Afternoon Load
+Kolkata,04:00 PM,4.1 GW,10.3 GW,₹2.45,₹0.40,₹3.35,High Solar/Afternoon Load
+Kolkata,04:30 PM,3.8 GW,9.2 GW,₹3.48,₹0.41,₹4.39,High Solar/Afternoon Load
+Kolkata,05:00 PM,4.1 GW,7.6 GW,₹5.61,₹0.54,₹6.65,Sunset Transition
+Kolkata,05:30 PM,3.8 GW,5.8 GW,₹7.73,₹0.66,₹8.89,Sunset Transition
+Kolkata,06:00 PM,4.3 GW,4.6 GW,₹9.86,₹0.93,₹11.29,Evening Peak Stress
+Kolkata,06:30 PM,4.4 GW,3.8 GW,₹10.00,₹1.16,₹11.66,Evening Peak Stress
+Kolkata,07:00 PM,4.3 GW,3.4 GW,₹9.88,₹1.26,₹11.64,Evening Peak Stress
+Kolkata,07:30 PM,4.6 GW,3.3 GW,₹10.00,₹1.39,₹11.89,Evening Peak Stress
+Kolkata,08:00 PM,4.4 GW,2.9 GW,₹9.86,₹1.52,₹11.88,Evening Peak Stress
+Kolkata,08:30 PM,4.4 GW,2.9 GW,₹10.00,₹1.52,₹12.02,Evening Peak Stress
+Kolkata,09:00 PM,4.3 GW,3.2 GW,₹10.00,₹1.34,₹11.84,Evening Peak Stress
+Kolkata,09:30 PM,4.7 GW,3.0 GW,₹10.00,₹1.57,₹12.07,Evening Peak Stress
+Kolkata,10:00 PM,4.4 GW,2.9 GW,₹10.00,₹1.52,₹12.02,Evening Peak Stress
+Kolkata,10:30 PM,2.7 GW,3.5 GW,₹7.94,₹0.77,₹9.21,Night Load
+Kolkata,11:00 PM,2.6 GW,3.1 GW,₹7.01,₹0.84,₹8.35,Night Load
+Kolkata,11:30 PM,2.6 GW,3.3 GW,₹5.91,₹0.79,₹7.20,Night Load
+Kolkata,12:00 AM,2.8 GW,3.6 GW,₹4.46,₹0.78,₹5.74,Night Load
+Hyderabad,12:00 AM,2.3 GW,3.8 GW,₹3.92,₹0.61,₹5.03,Night Load
+Hyderabad,12:30 AM,2.2 GW,3.7 GW,₹3.99,₹0.59,₹5.08,Night Load
+Hyderabad,01:00 AM,2.3 GW,3.9 GW,₹3.86,₹0.59,₹4.95,Night Load
+Hyderabad,01:30 AM,2.1 GW,3.8 GW,₹3.86,₹0.55,₹4.91,Night Load
+Hyderabad,02:00 AM,2.2 GW,3.8 GW,₹3.79,₹0.58,₹4.87,Night Load
+Hyderabad,02:30 AM,2.3 GW,3.5 GW,₹3.74,₹0.66,₹4.90,Night Load
+Hyderabad,03:00 AM,2.2 GW,3.4 GW,₹3.73,₹0.65,₹4.88,Night Load
+Hyderabad,03:30 AM,2.3 GW,3.6 GW,₹3.69,₹0.64,₹4.83,Night Load
+Hyderabad,04:00 AM,2.1 GW,3.4 GW,₹3.60,₹0.62,₹4.72,Night Load
+Hyderabad,04:30 AM,2.3 GW,3.3 GW,₹3.65,₹0.70,₹4.85,Night Load
+Hyderabad,05:00 AM,2.3 GW,3.3 GW,₹3.48,₹0.70,₹4.68,Night Load
+Hyderabad,05:30 AM,2.2 GW,3.2 GW,₹3.49,₹0.69,₹4.68,Night Load
+Hyderabad,06:00 AM,3.4 GW,3.6 GW,₹3.92,₹0.94,₹5.36,Morning Rise
+Hyderabad,06:30 AM,3.5 GW,4.2 GW,₹4.54,₹0.83,₹5.87,Morning Rise
+Hyderabad,07:00 AM,3.6 GW,4.7 GW,₹4.91,₹0.77,₹6.18,Morning Rise
+Hyderabad,07:30 AM,3.6 GW,5.6 GW,₹5.53,₹0.64,₹6.67,Morning Rise
+Hyderabad,08:00 AM,3.7 GW,6.2 GW,₹5.98,₹0.60,₹7.08,Morning Rise
+Hyderabad,08:30 AM,3.7 GW,6.8 GW,₹6.54,₹0.54,₹7.58,Morning Rise
+Hyderabad,09:00 AM,3.4 GW,7.5 GW,₹7.03,₹0.45,₹7.98,Morning Rise
+Hyderabad,09:30 AM,3.6 GW,8.2 GW,₹7.64,₹0.44,₹8.58,Morning Rise
+Hyderabad,10:00 AM,4.2 GW,8.7 GW,₹5.95,₹0.48,₹6.93,High Solar/Afternoon Load
+Hyderabad,10:30 AM,4.3 GW,9.8 GW,₹4.58,₹0.44,₹5.52,High Solar/Afternoon Load
+Hyderabad,11:00 AM,4.1 GW,10.0 GW,₹3.27,₹0.41,₹4.18,High Solar/Afternoon Load
+Hyderabad,11:30 AM,4.0 GW,10.7 GW,₹1.99,₹0.37,₹2.86,High Solar/Afternoon Load
+Hyderabad,12:00 PM,4.2 GW,12.3 GW,₹1.79,₹0.34,₹2.63,High Solar/Afternoon Load
+Hyderabad,12:30 PM,4.2 GW,11.8 GW,₹1.88,₹0.36,₹2.74,High Solar/Afternoon Load
+Hyderabad,01:00 PM,4.2 GW,11.9 GW,₹1.97,₹0.35,₹2.82,High Solar/Afternoon Load
+Hyderabad,01:30 PM,4.0 GW,12.3 GW,₹2.04,₹0.33,₹2.87,High Solar/Afternoon Load
+Hyderabad,02:00 PM,4.1 GW,11.1 GW,₹2.12,₹0.37,₹2.99,High Solar/Afternoon Load
+Hyderabad,02:30 PM,4.2 GW,11.2 GW,₹2.28,₹0.38,₹3.16,High Solar/Afternoon Load
+Hyderabad,03:00 PM,4.1 GW,11.4 GW,₹2.27,₹0.36,₹3.13,High Solar/Afternoon Load
+Hyderabad,03:30 PM,4.2 GW,10.9 GW,₹2.36,₹0.39,₹3.25,High Solar/Afternoon Load
+Hyderabad,04:00 PM,4.3 GW,10.8 GW,₹2.45,₹0.40,₹3.35,High Solar/Afternoon Load
+Hyderabad,04:30 PM,4.0 GW,9.5 GW,₹3.53,₹0.42,₹4.45,High Solar/Afternoon Load
+Hyderabad,05:00 PM,4.3 GW,8.4 GW,₹5.54,₹0.51,₹6.55,Sunset Transition
+Hyderabad,05:30 PM,4.3 GW,6.2 GW,₹7.73,₹0.69,₹8.92,Sunset Transition
+Hyderabad,06:00 PM,4.5 GW,4.8 GW,₹9.86,₹0.94,₹11.30,Evening Peak Stress
+Hyderabad,06:30 PM,4.6 GW,4.1 GW,₹10.00,₹1.12,₹11.62,Evening Peak Stress
+Hyderabad,07:00 PM,4.3 GW,3.8 GW,₹9.88,₹1.13,₹11.51,Evening Peak Stress
+Hyderabad,07:30 PM,4.6 GW,3.6 GW,₹10.00,₹1.28,₹11.78,Evening Peak Stress
+Hyderabad,08:00 PM,4.6 GW,3.1 GW,₹9.86,₹1.48,₹11.84,Evening Peak Stress
+Hyderabad,08:30 PM,4.3 GW,3.2 GW,₹9.83,₹1.34,₹11.67,Evening Peak Stress
+Hyderabad,09:00 PM,4.3 GW,3.4 GW,₹9.90,₹1.26,₹11.66,Evening Peak Stress
+Hyderabad,09:30 PM,4.6 GW,3.1 GW,₹10.00,₹1.48,₹11.98,Evening Peak Stress
+Hyderabad,10:00 PM,4.5 GW,3.2 GW,₹10.00,₹1.41,₹11.91,Evening Peak Stress
+Hyderabad,10:30 PM,2.9 GW,3.7 GW,₹8.11,₹0.78,₹9.39,Night Load
+Hyderabad,11:00 PM,3.0 GW,3.2 GW,₹6.97,₹0.94,₹8.41,Night Load
+Hyderabad,11:30 PM,2.8 GW,3.6 GW,₹6.05,₹0.78,₹7.33,Night Load
+Hyderabad,12:00 AM,3.0 GW,3.7 GW,₹4.46,₹0.81,₹5.77,Night Load
+Pune,12:00 AM,1.8 GW,2.9 GW,₹4.01,₹0.62,₹5.13,Night Load
+Pune,12:30 AM,1.8 GW,2.9 GW,₹3.99,₹0.62,₹5.11,Night Load
+Pune,01:00 AM,1.8 GW,3.0 GW,₹3.86,₹0.60,₹4.96,Night Load
+Pune,01:30 AM,1.8 GW,3.0 GW,₹3.86,₹0.60,₹4.96,Night Load
+Pune,02:00 AM,1.7 GW,3.0 GW,₹3.74,₹0.57,₹4.81,Night Load
+Pune,02:30 AM,1.8 GW,2.7 GW,₹3.80,₹0.67,₹4.97,Night Load
+Pune,03:00 AM,1.7 GW,2.7 GW,₹3.74,₹0.63,₹4.87,Night Load
+Pune,03:30 AM,1.7 GW,2.7 GW,₹3.69,₹0.63,₹4.82,Night Load
+Pune,04:00 AM,1.8 GW,2.7 GW,₹3.61,₹0.67,₹4.78,Night Load
+Pune,04:30 AM,1.7 GW,2.6 GW,₹3.58,₹0.65,₹4.73,Night Load
+Pune,05:00 AM,1.8 GW,2.7 GW,₹3.48,₹0.67,₹4.65,Night Load
+Pune,05:30 AM,1.8 GW,2.4 GW,₹3.51,₹0.75,₹4.76,Night Load
+Pune,06:00 AM,2.8 GW,2.9 GW,₹4.02,₹0.97,₹5.49,Morning Rise
+Pune,06:30 AM,2.9 GW,3.2 GW,₹4.42,₹0.91,₹5.83,Morning Rise
+Pune,07:00 AM,2.8 GW,3.6 GW,₹5.00,₹0.78,₹6.28,Morning Rise
+Pune,07:30 AM,2.7 GW,4.3 GW,₹5.48,₹0.63,₹6.61,Morning Rise
+Pune,08:00 AM,2.7 GW,4.8 GW,₹5.89,₹0.56,₹6.95,Morning Rise
+Pune,08:30 AM,2.8 GW,5.4 GW,₹6.50,₹0.52,₹7.52,Morning Rise
+Pune,09:00 AM,2.8 GW,5.7 GW,₹7.03,₹0.49,₹8.02,Morning Rise
+Pune,09:30 AM,2.7 GW,6.3 GW,₹7.45,₹0.43,₹8.38,Morning Rise
+Pune,10:00 AM,3.3 GW,6.9 GW,₹6.05,₹0.48,₹7.03,High Solar/Afternoon Load
+Pune,10:30 AM,3.2 GW,7.4 GW,₹4.58,₹0.43,₹5.51,High Solar/Afternoon Load
+Pune,11:00 AM,3.4 GW,8.0 GW,₹3.27,₹0.42,₹4.19,High Solar/Afternoon Load
+Pune,11:30 AM,3.4 GW,8.4 GW,₹1.97,₹0.40,₹2.87,High Solar/Afternoon Load
+Pune,12:00 PM,3.4 GW,9.5 GW,₹1.79,₹0.36,₹2.65,High Solar/Afternoon Load
+Pune,12:30 PM,3.2 GW,9.1 GW,₹1.87,₹0.35,₹2.72,High Solar/Afternoon Load
+Pune,01:00 PM,3.2 GW,9.2 GW,₹2.01,₹0.35,₹2.86,High Solar/Afternoon Load
+Pune,01:30 PM,3.2 GW,9.6 GW,₹2.05,₹0.33,₹2.88,High Solar/Afternoon Load
+Pune,02:00 PM,3.4 GW,8.6 GW,₹2.12,₹0.40,₹2.88,High Solar/Afternoon Load
+Pune,02:30 PM,3.3 GW,8.6 GW,₹2.24,₹0.38,₹3.12,High Solar/Afternoon Load
+Pune,03:00 PM,3.4 GW,8.8 GW,₹2.27,₹0.39,₹3.16,High Solar/Afternoon Load
+Pune,03:30 PM,3.2 GW,8.6 GW,₹2.41,₹0.37,₹3.28,High Solar/Afternoon Load
+Pune,04:00 PM,3.3 GW,8.6 GW,₹2.45,₹0.38,₹3.33,High Solar/Afternoon Load
+Pune,04:30 PM,3.4 GW,7.5 GW,₹3.53,₹0.45,₹4.48,High Solar/Afternoon Load
+Pune,05:00 PM,3.2 GW,6.3 GW,₹5.54,₹0.51,₹6.55,Sunset Transition
+Pune,05:30 PM,3.3 GW,4.9 GW,₹7.73,₹0.67,₹8.90,Sunset Transition
+Pune,06:00 PM,3.4 GW,3.8 GW,₹9.94,₹0.89,₹11.33,Evening Peak Stress
+Pune,06:30 PM,3.3 GW,3.3 GW,₹9.90,₹1.00,₹11.40,Evening Peak Stress
+Pune,07:00 PM,3.3 GW,3.0 GW,₹10.00,₹1.10,₹11.60,Evening Peak Stress
+Pune,07:30 PM,3.3 GW,2.9 GW,₹10.00,₹1.14,₹11.64,Evening Peak Stress
+Pune,08:00 PM,3.3 GW,2.5 GW,₹9.87,₹1.32,₹11.69,Evening Peak Stress
+Pune,08:30 PM,3.3 GW,2.5 GW,₹9.86,₹1.32,₹11.68,Evening Peak Stress
+Pune,09:00 PM,3.2 GW,2.5 GW,₹10.00,₹1.28,₹11.78,Evening Peak Stress
+Pune,09:30 PM,3.3 GW,2.4 GW,₹10.00,₹1.38,₹11.88,Evening Peak Stress
+Pune,10:00 PM,3.1 GW,2.5 GW,₹10.00,₹1.24,₹11.74,Evening Peak Stress
+Pune,10:30 PM,2.2 GW,2.9 GW,₹8.11,₹0.76,₹9.37,Night Load
+Pune,11:00 PM,2.3 GW,2.5 GW,₹6.97,₹0.92,₹8.39,Night Load
+Pune,11:30 PM,2.3 GW,2.7 GW,₹6.05,₹0.85,₹7.40,Night Load
+Pune,12:00 AM,2.3 GW,2.8 GW,₹4.46,₹0.82,₹5.78,Night Load
+Ahmedabad,12:00 AM,1.9 GW,3.2 GW,₹3.93,₹0.59,₹5.02,Night Load
+Ahmedabad,12:30 AM,2.0 GW,3.2 GW,₹4.01,₹0.62,₹5.13,Night Load
+Ahmedabad,01:00 AM,2.0 GW,3.4 GW,₹3.93,₹0.59,₹5.02,Night Load
+Ahmedabad,01:30 AM,1.9 GW,3.4 GW,₹3.86,₹0.56,₹4.92,Night Load
+Ahmedabad,02:00 AM,2.0 GW,3.3 GW,₹3.74,₹0.61,₹4.85,Night Load
+Ahmedabad,02:30 AM,2.0 GW,3.0 GW,₹3.78,₹0.67,₹4.95,Night Load
+Ahmedabad,03:00 AM,1.9 GW,3.0 GW,₹3.70,₹0.63,₹4.83,Night Load
+Ahmedabad,03:30 AM,1.9 GW,3.0 GW,₹3.69,₹0.63,₹4.82,Night Load
+Ahmedabad,04:00 AM,2.0 GW,2.9 GW,₹3.62,₹0.69,₹4.81,Night Load
+Ahmedabad,04:30 AM,1.9 GW,2.9 GW,₹3.64,₹0.66,₹4.80,Night Load
+Ahmedabad,05:00 AM,1.9 GW,3.0 GW,₹3.53,₹0.63,₹4.66,Night Load
+Ahmedabad,05:30 AM,1.9 GW,2.7 GW,₹3.51,₹0.70,₹4.71,Night Load
+Ahmedabad,06:00 AM,3.1 GW,3.3 GW,₹3.95,₹0.94,₹5.39,Morning Rise
+Ahmedabad,06:30 AM,3.1 GW,3.7 GW,₹4.42,₹0.84,₹5.76,Morning Rise
+Ahmedabad,07:00 AM,3.1 GW,4.2 GW,₹4.91,₹0.74,₹6.15,Morning Rise
+Ahmedabad,07:30 AM,3.2 GW,4.6 GW,₹5.40,₹0.70,₹6.60,Morning Rise
+Ahmedabad,08:00 AM,3.0 GW,5.2 GW,₹5.89,₹0.58,₹6.97,Morning Rise
+Ahmedabad,08:30 AM,3.2 GW,6.2 GW,₹6.54,₹0.52,₹7.56,Morning Rise
+Ahmedabad,09:00 AM,3.1 GW,6.5 GW,₹7.07,₹0.48,₹8.05,Morning Rise
+Ahmedabad,09:30 AM,3.1 GW,7.0 GW,₹7.55,₹0.44,₹8.49,Morning Rise
+Ahmedabad,10:00 AM,3.7 GW,7.6 GW,₹6.05,₹0.49,₹7.04,High Solar/Afternoon Load
+Ahmedabad,10:30 AM,3.5 GW,8.4 GW,₹4.61,₹0.42,₹5.53,High Solar/Afternoon Load
+Ahmedabad,11:00 AM,3.7 GW,8.9 GW,₹3.34,₹0.42,₹4.26,High Solar/Afternoon Load
+Ahmedabad,11:30 AM,3.6 GW,9.4 GW,₹1.97,₹0.38,₹2.85,High Solar/Afternoon Load
+Ahmedabad,12:00 PM,3.6 GW,10.6 GW,₹1.79,₹0.34,₹2.63,High Solar/Afternoon Load
+Ahmedabad,12:30 PM,3.6 GW,10.1 GW,₹1.88,₹0.36,₹2.74,High Solar/Afternoon Load
+Ahmedabad,01:00 PM,3.7 GW,10.5 GW,₹1.96,₹0.35,₹2.81,High Solar/Afternoon Load
+Ahmedabad,01:30 PM,3.8 GW,10.4 GW,₹2.04,₹0.37,₹2.91,High Solar/Afternoon Load
+Ahmedabad,02:00 PM,3.7 GW,9.8 GW,₹2.12,₹0.38,₹3.00,High Solar/Afternoon Load
+Ahmedabad,02:30 PM,3.8 GW,9.7 GW,₹2.22,₹0.39,₹3.11,High Solar/Afternoon Load
+Ahmedabad,03:00 PM,3.5 GW,9.8 GW,₹2.31,₹0.36,₹3.17,High Solar/Afternoon Load
+Ahmedabad,03:30 PM,3.6 GW,9.5 GW,₹2.36,₹0.38,₹3.24,High Solar/Afternoon Load
+Ahmedabad,04:00 PM,3.7 GW,9.8 GW,₹2.45,₹0.38,₹3.33,High Solar/Afternoon Load
+Ahmedabad,04:30 PM,3.8 GW,8.4 GW,₹3.51,₹0.45,₹4.46,High Solar/Afternoon Load
+Ahmedabad,05:00 PM,3.7 GW,7.3 GW,₹5.67,₹0.51,₹6.68,Sunset Transition
+Ahmedabad,05:30 PM,3.7 GW,5.3 GW,₹7.73,₹0.70,₹8.93,Sunset Transition
+Ahmedabad,06:00 PM,3.7 GW,4.2 GW,₹10.00,₹0.88,₹11.38,Evening Peak Stress
+Ahmedabad,06:30 PM,3.7 GW,3.8 GW,₹10.00,₹0.97,₹11.47,Evening Peak Stress
+Ahmedabad,07:00 PM,3.8 GW,3.4 GW,₹9.88,₹1.12,₹11.50,Evening Peak Stress
+Ahmedabad,07:30 PM,4.0 GW,3.2 GW,₹10.00,₹1.25,₹11.75,Evening Peak Stress
+Ahmedabad,08:00 PM,3.8 GW,2.9 GW,₹10.00,₹1.31,₹11.81,Evening Peak Stress
+Ahmedabad,08:30 PM,4.0 GW,2.8 GW,₹9.83,₹1.43,₹11.76,Evening Peak Stress
+Ahmedabad,09:00 PM,4.1 GW,3.0 GW,₹10.00,₹1.37,₹11.87,Evening Peak Stress
+Ahmedabad,09:30 PM,3.9 GW,2.8 GW,₹10.00,₹1.39,₹11.89,Evening Peak Stress
+Ahmedabad,10:00 PM,3.8 GW,2.9 GW,₹9.88,₹1.31,₹11.69,Evening Peak Stress
+Ahmedabad,10:30 PM,2.5 GW,3.4 GW,₹8.16,₹0.74,₹9.40,Night Load
+Ahmedabad,11:00 PM,2.5 GW,2.8 GW,₹6.97,₹0.89,₹8.36,Night Load
+Ahmedabad,11:30 PM,2.6 GW,3.1 GW,₹5.88,₹0.84,₹7.22,Night Load
+Ahmedabad,12:00 AM,2.5 GW,3.3 GW,₹4.46,₹0.76,₹5.72,Night Load
+Surat,12:00 AM,1.5 GW,2.5 GW,₹3.92,₹0.60,₹5.02,Night Load
+Surat,12:30 AM,1.6 GW,2.4 GW,₹3.99,₹0.67,₹5.16,Night Load
+Surat,01:00 AM,1.5 GW,2.6 GW,₹3.86,₹0.58,₹4.94,Night Load
+Surat,01:30 AM,1.6 GW,2.5 GW,₹3.86,₹0.64,₹5.00,Night Load
+Surat,02:00 AM,1.6 GW,2.5 GW,₹3.79,₹0.64,₹4.93,Night Load
+Surat,02:30 AM,1.6 GW,2.3 GW,₹3.74,₹0.70,₹4.94,Night Load
+Surat,03:00 AM,1.5 GW,2.4 GW,₹3.73,₹0.62,₹4.85,Night Load
+Surat,03:30 AM,1.6 GW,2.4 GW,₹3.69,₹0.67,₹4.86,Night Load
+Surat,04:00 AM,1.5 GW,2.3 GW,₹3.60,₹0.65,₹4.75,Night Load
+Surat,04:30 AM,1.6 GW,2.3 GW,₹3.65,₹0.70,₹4.85,Night Load
+Surat,05:00 AM,1.6 GW,2.3 GW,₹3.48,₹0.70,₹4.68,Night Load
+Surat,05:30 AM,1.5 GW,2.2 GW,₹3.49,₹0.68,₹4.67,Night Load
+Surat,06:00 AM,2.4 GW,2.5 GW,₹3.92,₹0.96,₹5.38,Morning Rise
+Surat,06:30 AM,2.4 GW,2.9 GW,₹4.46,₹0.83,₹5.79,Morning Rise
+Surat,07:00 AM,2.4 GW,3.2 GW,₹4.91,₹0.75,₹6.16,Morning Rise
+Surat,07:30 AM,2.5 GW,3.8 GW,₹5.53,₹0.66,₹6.69,Morning Rise
+Surat,08:00 AM,2.5 GW,4.2 GW,₹5.91,₹0.60,₹7.01,Morning Rise
+Surat,08:30 AM,2.5 GW,4.7 GW,₹6.50,₹0.53,₹7.53,Morning Rise
+Surat,09:00 AM,2.4 GW,5.1 GW,₹7.03,₹0.47,₹8.00,Morning Rise
+Surat,09:30 AM,2.5 GW,5.6 GW,₹7.64,₹0.45,₹8.59,Morning Rise
+Surat,10:00 AM,2.9 GW,6.0 GW,₹5.91,₹0.48,₹6.89,High Solar/Afternoon Load
+Surat,10:30 AM,3.0 GW,6.7 GW,₹4.58,₹0.45,₹5.53,High Solar/Afternoon Load
+Surat,11:00 AM,2.9 GW,7.1 GW,₹3.27,₹0.41,₹4.18,High Solar/Afternoon Load
+Surat,11:30 AM,2.9 GW,7.3 GW,₹1.99,₹0.40,₹2.89,High Solar/Afternoon Load
+Surat,12:00 PM,3.0 GW,8.4 GW,₹1.76,₹0.36,₹2.62,High Solar/Afternoon Load
+Surat,12:30 PM,2.9 GW,8.0 GW,₹1.88,₹0.36,₹2.74,High Solar/Afternoon Load
+Surat,01:00 PM,2.9 GW,8.1 GW,₹1.97,₹0.36,₹2.83,High Solar/Afternoon Load
+Surat,01:30 PM,2.9 GW,8.5 GW,₹2.04,₹0.34,₹2.88,High Solar/Afternoon Load
+Surat,02:00 PM,2.9 GW,7.7 GW,₹2.12,₹0.38,₹3.00,High Solar/Afternoon Load
+Surat,02:30 PM,2.9 GW,7.7 GW,₹2.28,₹0.38,₹3.16,High Solar/Afternoon Load
+Surat,03:00 PM,2.9 GW,7.8 GW,₹2.27,₹0.37,₹3.14,High Solar/Afternoon Load
+Surat,03:30 PM,3.0 GW,7.6 GW,₹2.36,₹0.39,₹3.25,High Solar/Afternoon Load
+Surat,04:00 PM,2.9 GW,7.4 GW,₹2.45,₹0.39,₹3.34,High Solar/Afternoon Load
+Surat,04:30 PM,2.8 GW,6.6 GW,₹3.53,₹0.42,₹4.45,High Solar/Afternoon Load
+Surat,05:00 PM,2.8 GW,5.7 GW,₹5.54,₹0.49,₹6.53,Sunset Transition
+Surat,05:30 PM,3.0 GW,4.3 GW,₹7.73,₹0.70,₹8.93,Sunset Transition
+Surat,06:00 PM,3.0 GW,3.3 GW,₹9.86,₹0.91,₹11.27,Evening Peak Stress
+Surat,06:30 PM,2.9 GW,2.9 GW,₹10.00,₹1.00,₹11.50,Evening Peak Stress
+Surat,07:00 PM,2.9 GW,2.6 GW,₹9.88,₹1.12,₹11.50,Evening Peak Stress
+Surat,07:30 PM,3.0 GW,2.5 GW,₹10.00,₹1.20,₹11.70,Evening Peak Stress
+Surat,08:00 PM,2.8 GW,2.1 GW,₹9.86,₹1.33,₹11.69,Evening Peak Stress
+Surat,08:30 PM,2.9 GW,2.1 GW,₹9.83,₹1.38,₹11.71,Evening Peak Stress
+Surat,09:00 PM,2.9 GW,2.4 GW,₹9.90,₹1.21,₹11.61,Evening Peak Stress
+Surat,09:30 PM,3.0 GW,2.2 GW,₹10.00,₹1.36,₹11.86,Evening Peak Stress
+Surat,10:00 PM,2.9 GW,2.2 GW,₹10.00,₹1.32,₹11.82,Evening Peak Stress
+Surat,10:30 PM,2.0 GW,2.6 GW,₹8.11,₹0.77,₹9.38,Night Load
+Surat,11:00 PM,2.0 GW,2.2 GW,₹6.97,₹0.91,₹8.38,Night Load
+Surat,11:30 PM,2.0 GW,2.5 GW,₹6.05,₹0.80,₹7.35,Night Load
+Surat,12:00 AM,2.0 GW,2.6 GW,₹4.46,₹0.77,₹5.73,Night Load
+Jaipur,12:00 AM,1.4 GW,2.3 GW,₹3.99,₹0.61,₹5.10,Night Load
+Jaipur,12:30 AM,1.4 GW,2.3 GW,₹3.95,₹0.61,₹5.06,Night Load
+Jaipur,01:00 AM,1.4 GW,2.4 GW,₹3.95,₹0.58,₹5.03,Night Load
+Jaipur,01:30 AM,1.5 GW,2.4 GW,₹3.86,₹0.62,₹4.98,Night Load
+Jaipur,02:00 AM,1.4 GW,2.2 GW,₹3.74,₹0.64,₹4.88,Night Load
+Jaipur,02:30 AM,1.4 GW,2.1 GW,₹3.82,₹0.67,₹4.99,Night Load
+Jaipur,03:00 AM,1.4 GW,2.1 GW,₹3.73,₹0.67,₹4.90,Night Load
+Jaipur,03:30 AM,1.4 GW,2.1 GW,₹3.72,₹0.67,₹4.89,Night Load
+Jaipur,04:00 AM,1.3 GW,2.1 GW,₹3.61,₹0.62,₹4.73,Night Load
+Jaipur,04:30 AM,1.3 GW,2.1 GW,₹3.58,₹0.62,₹4.70,Night Load
+Jaipur,05:00 AM,1.4 GW,2.0 GW,₹3.55,₹0.70,₹4.75,Night Load
+Jaipur,05:30 AM,1.4 GW,1.9 GW,₹3.51,₹0.74,₹4.75,Night Load
+Jaipur,06:00 AM,2.2 GW,2.3 GW,₹3.98,₹0.96,₹5.44,Morning Rise
+Jaipur,06:30 AM,2.3 GW,2.6 GW,₹4.48,₹0.88,₹5.86,Morning Rise
+Jaipur,07:00 AM,2.1 GW,3.0 GW,₹5.00,₹0.70,₹6.20,Morning Rise
+Jaipur,07:30 AM,2.1 GW,3.3 GW,₹5.42,₹0.64,₹6.56,Morning Rise
+Jaipur,08:00 AM,2.3 GW,4.0 GW,₹5.89,₹0.57,₹6.96,Morning Rise
+Jaipur,08:30 AM,2.2 GW,4.3 GW,₹6.57,₹0.51,₹7.58,Morning Rise
+Jaipur,09:00 AM,2.2 GW,4.4 GW,₹7.13,₹0.50,₹8.13,Morning Rise
+Jaipur,09:30 AM,2.3 GW,5.1 GW,₹7.63,₹0.45,₹8.58,Morning Rise
+Jaipur,10:00 AM,2.7 GW,5.5 GW,₹6.05,₹0.49,₹7.04,High Solar/Afternoon Load
+Jaipur,10:30 AM,2.7 GW,6.0 GW,₹4.61,₹0.45,₹5.56,High Solar/Afternoon Load
+Jaipur,11:00 AM,2.6 GW,6.5 GW,₹3.34,₹0.40,₹4.24,High Solar/Afternoon Load
+Jaipur,11:30 AM,2.7 GW,7.2 GW,₹1.99,₹0.38,₹2.87,High Solar/Afternoon Load
+Jaipur,12:00 PM,2.5 GW,7.9 GW,₹1.80,₹0.32,₹2.62,High Solar/Afternoon Load
+Jaipur,12:30 PM,2.5 GW,7.6 GW,₹1.87,₹0.33,₹2.70,High Solar/Afternoon Load
+Jaipur,01:00 PM,2.6 GW,7.8 GW,₹2.01,₹0.33,₹2.84,High Solar/Afternoon Load
+Jaipur,01:30 PM,2.5 GW,7.6 GW,₹2.05,₹0.33,₹2.88,High Solar/Afternoon Load
+Jaipur,02:00 PM,2.5 GW,7.0 GW,₹2.12,₹0.36,₹2.98,High Solar/Afternoon Load
+Jaipur,02:30 PM,2.7 GW,6.9 GW,₹2.27,₹0.39,₹3.16,High Solar/Afternoon Load
+Jaipur,03:00 PM,2.6 GW,6.9 GW,₹2.31,₹0.38,₹3.19,High Solar/Afternoon Load
+Jaipur,03:30 PM,2.5 GW,6.8 GW,₹2.41,₹0.37,₹3.28,High Solar/Afternoon Load
+Jaipur,04:00 PM,2.7 GW,7.0 GW,₹2.45,₹0.39,₹3.34,High Solar/Afternoon Load
+Jaipur,04:30 PM,2.5 GW,5.9 GW,₹3.53,₹0.42,₹4.45,High Solar/Afternoon Load
+Jaipur,05:00 PM,2.5 GW,5.2 GW,₹5.54,₹0.48,₹6.52,Sunset Transition
+Jaipur,05:30 PM,2.6 GW,4.0 GW,₹7.73,₹0.65,₹8.88,Sunset Transition
+Jaipur,06:00 PM,3.2 GW,2.8 GW,₹10.00,₹1.14,₹11.64,Evening Peak Stress
+Jaipur,06:30 PM,3.2 GW,2.6 GW,₹9.90,₹1.23,₹11.63,Evening Peak Stress
+Jaipur,07:00 PM,3.1 GW,2.3 GW,₹9.88,₹1.35,₹11.73,Evening Peak Stress
+Jaipur,07:30 PM,3.2 GW,2.2 GW,₹10.00,₹1.45,₹11.95,Evening Peak Stress
+Jaipur,08:00 PM,3.1 GW,2.0 GW,₹10.00,₹1.55,₹12.05,Evening Peak Stress
+Jaipur,08:30 PM,3.2 GW,2.0 GW,₹9.86,₹1.60,₹11.96,Evening Peak Stress
+Jaipur,09:00 PM,3.3 GW,2.1 GW,₹9.97,₹1.57,₹12.04,Evening Peak Stress
+Jaipur,09:30 PM,3.1 GW,2.0 GW,₹10.00,₹1.55,₹12.05,Evening Peak Stress
+Jaipur,10:00 PM,3.4 GW,1.9 GW,₹9.88,₹1.79,₹12.17,Evening Peak Stress
+Jaipur,10:30 PM,1.8 GW,2.3 GW,₹8.05,₹0.78,₹9.33,Night Load
+Jaipur,11:00 PM,1.8 GW,2.0 GW,₹7.10,₹0.90,₹8.50,Night Load
+Jaipur,11:30 PM,1.8 GW,2.2 GW,₹6.05,₹0.82,₹7.37,Night Load
+Jaipur,12:00 AM,1.8 GW,2.4 GW,₹4.54,₹0.75,₹5.79,Night Load
+Lucknow,12:00 AM,1.2 GW,2.0 GW,₹4.01,₹0.60,₹5.11,Night Load
+Lucknow,12:30 AM,1.3 GW,2.0 GW,₹3.97,₹0.65,₹5.12,Night Load
+Lucknow,01:00 AM,1.2 GW,2.0 GW,₹3.88,₹0.60,₹4.98,Night Load
+Lucknow,01:30 AM,1.3 GW,2.1 GW,₹3.85,₹0.62,₹4.97,Night Load
+Lucknow,02:00 AM,1.3 GW,1.9 GW,₹3.77,₹0.68,₹4.95,Night Load
+Lucknow,02:30 AM,1.3 GW,2.1 GW,₹3.76,₹0.62,₹4.88,Night Load
+Lucknow,03:00 AM,1.2 GW,2.0 GW,₹3.78,₹0.60,₹4.88,Night Load
+Lucknow,03:30 AM,1.3 GW,1.8 GW,₹3.69,₹0.72,₹4.91,Night Load
+Lucknow,04:00 AM,1.2 GW,1.8 GW,₹3.62,₹0.67,₹4.79,Night Load
+Lucknow,04:30 AM,1.3 GW,1.8 GW,₹3.65,₹0.72,₹4.87,Night Load
+Lucknow,05:00 AM,1.2 GW,1.9 GW,₹3.53,₹0.63,₹4.66,Night Load
+Lucknow,05:30 AM,1.2 GW,1.7 GW,₹3.48,₹0.71,₹4.69,Night Load
+Lucknow,06:00 AM,1.9 GW,2.0 GW,₹3.92,₹0.95,₹5.37,Morning Rise
+Lucknow,06:30 AM,1.9 GW,2.3 GW,₹4.46,₹0.83,₹5.79,Morning Rise
+Lucknow,07:00 AM,2.0 GW,2.7 GW,₹5.05,₹0.74,₹6.29,Morning Rise
+Lucknow,07:30 AM,1.9 GW,3.1 GW,₹5.48,₹0.61,₹6.59,Morning Rise
+Lucknow,08:00 AM,1.9 GW,3.4 GW,₹5.89,₹0.56,₹6.95,Morning Rise
+Lucknow,08:30 AM,1.9 GW,3.8 GW,₹6.54,₹0.50,₹7.54,Morning Rise
+Lucknow,09:00 AM,1.9 GW,4.0 GW,₹7.01,₹0.47,₹7.98,Morning Rise
+Lucknow,09:30 AM,2.0 GW,4.7 GW,₹7.55,₹0.43,₹8.48,Morning Rise
+Lucknow,10:00 AM,2.3 GW,5.0 GW,₹6.05,₹0.46,₹7.01,High Solar/Afternoon Load
+Lucknow,10:30 AM,2.3 GW,5.5 GW,₹4.58,₹0.42,₹5.50,High Solar/Afternoon Load
+Lucknow,11:00 AM,2.4 GW,5.9 GW,₹3.34,₹0.41,₹4.25,High Solar/Afternoon Load
+Lucknow,11:30 AM,2.3 GW,6.2 GW,₹1.97,₹0.37,₹2.84,High Solar/Afternoon Load
+Lucknow,12:00 PM,2.4 GW,6.7 GW,₹1.77,₹0.36,₹2.63,High Solar/Afternoon Load
+Lucknow,12:30 PM,2.3 GW,7.0 GW,₹1.88,₹0.33,₹2.71,High Solar/Afternoon Load
+Lucknow,01:00 PM,2.4 GW,6.9 GW,₹2.00,₹0.35,₹2.85,High Solar/Afternoon Load
+Lucknow,01:30 PM,2.5 GW,6.6 GW,₹2.04,₹0.38,₹2.92,High Solar/Afternoon Load
+Lucknow,02:00 PM,2.3 GW,6.5 GW,₹2.16,₹0.35,₹3.01,High Solar/Afternoon Load
+Lucknow,02:30 PM,2.3 GW,6.2 GW,₹2.28,₹0.37,₹3.15,High Solar/Afternoon Load
+Lucknow,03:00 PM,2.5 GW,6.2 GW,₹2.31,₹0.40,₹3.21,High Solar/Afternoon Load
+Lucknow,03:30 PM,2.3 GW,6.3 GW,₹2.40,₹0.37,₹3.27,High Solar/Afternoon Load
+Lucknow,04:00 PM,2.3 GW,6.5 GW,₹2.50,₹0.35,₹3.35,High Solar/Afternoon Load
+Lucknow,04:30 PM,2.3 GW,5.3 GW,₹3.53,₹0.43,₹4.46,High Solar/Afternoon Load
+Lucknow,05:00 PM,3.2 GW,4.7 GW,₹5.61,₹0.68,₹6.79,Sunset Transition
+Lucknow,05:30 PM,3.3 GW,3.6 GW,₹7.73,₹0.92,₹9.15,Sunset Transition
+Lucknow,06:00 PM,3.1 GW,2.6 GW,₹10.00,₹1.19,₹11.69,Evening Peak Stress
+Lucknow,06:30 PM,3.2 GW,2.2 GW,₹10.00,₹1.45,₹11.95,Evening Peak Stress
+Lucknow,07:00 PM,3.4 GW,2.1 GW,₹10.00,₹1.62,₹12.12,Evening Peak Stress
+Lucknow,07:30 PM,3.2 GW,2.0 GW,₹10.00,₹1.60,₹12.10,Evening Peak Stress
+Lucknow,08:00 PM,3.2 GW,1.8 GW,₹9.86,₹1.78,₹12.14,Evening Peak Stress
+Lucknow,08:30 PM,3.1 GW,1.8 GW,₹10.00,₹1.72,₹12.22,Evening Peak Stress
+Lucknow,09:00 PM,3.2 GW,1.9 GW,₹10.00,₹1.68,₹12.18,Evening Peak Stress
+Lucknow,09:30 PM,3.3 GW,1.7 GW,₹10.00,₹1.94,₹12.44,Evening Peak Stress
+Lucknow,10:00 PM,3.3 GW,1.7 GW,₹10.00,₹1.94,₹12.44,Evening Peak Stress
+Lucknow,10:30 PM,1.5 GW,2.1 GW,₹7.90,₹0.71,₹9.11,Night Load
+Lucknow,11:00 PM,1.6 GW,2.1 GW,₹7.01,₹0.76,₹8.27,Night Load
+Lucknow,11:30 PM,1.7 GW,2.1 GW,₹5.91,₹0.81,₹7.22,Night Load
+Lucknow,12:00 AM,1.7 GW,2.2 GW,₹4.46,₹0.77,₹5.73,Night Load
+Kanpur,12:00 AM,1.0 GW,1.6 GW,₹3.93,₹0.62,₹5.05,Night Load
+Kanpur,12:30 AM,1.1 GW,1.6 GW,₹4.01,₹0.69,₹5.20,Night Load
+Kanpur,01:00 AM,1.1 GW,1.8 GW,₹3.93,₹0.61,₹5.04,Night Load
+Kanpur,01:30 AM,1.0 GW,1.8 GW,₹3.86,₹0.56,₹4.92,Night Load
+Kanpur,02:00 AM,1.1 GW,1.7 GW,₹3.74,₹0.65,₹4.89,Night Load
+Kanpur,02:30 AM,1.1 GW,1.6 GW,₹3.78,₹0.69,₹4.97,Night Load
+Kanpur,03:00 AM,1.0 GW,1.6 GW,₹3.70,₹0.62,₹4.82,Night Load
+Kanpur,03:30 AM,1.0 GW,1.6 GW,₹3.69,₹0.62,₹4.81,Night Load
+Kanpur,04:00 AM,1.1 GW,1.5 GW,₹3.62,₹0.73,₹4.85,Night Load
+Kanpur,04:30 AM,1.0 GW,1.5 GW,₹3.64,₹0.67,₹4.81,Night Load
+Kanpur,05:00 AM,1.0 GW,1.6 GW,₹3.53,₹0.62,₹4.65,Night Load
+Kanpur,05:30 AM,1.0 GW,1.4 GW,₹3.51,₹0.71,₹4.72,Night Load
+Kanpur,06:00 AM,1.7 GW,1.8 GW,₹3.95,₹0.94,₹5.39,Morning Rise
+Kanpur,06:30 AM,1.6 GW,2.0 GW,₹4.42,₹0.80,₹5.72,Morning Rise
+Kanpur,07:00 AM,1.7 GW,2.2 GW,₹4.91,₹0.77,₹6.18,Morning Rise
+Kanpur,07:30 AM,1.7 GW,2.5 GW,₹5.40,₹0.68,₹6.58,Morning Rise
+Kanpur,08:00 AM,1.6 GW,2.8 GW,₹5.89,₹0.57,₹6.96,Morning Rise
+Kanpur,08:30 AM,1.7 GW,3.3 GW,₹6.54,₹0.52,₹7.56,Morning Rise
+Kanpur,09:00 AM,1.6 GW,3.5 GW,₹7.07,₹0.46,₹8.03,Morning Rise
+Kanpur,09:30 AM,1.7 GW,3.7 GW,₹7.55,₹0.46,₹8.51,Morning Rise
+Kanpur,10:00 AM,2.0 GW,4.1 GW,₹6.05,₹0.49,₹7.04,High Solar/Afternoon Load
+Kanpur,10:30 AM,1.9 GW,4.5 GW,₹4.61,₹0.42,₹5.53,High Solar/Afternoon Load
+Kanpur,11:00 AM,2.0 GW,4.8 GW,₹3.34,₹0.42,₹4.26,High Solar/Afternoon Load
+Kanpur,11:30 AM,1.9 GW,5.0 GW,₹1.97,₹0.38,₹2.85,High Solar/Afternoon Load
+Kanpur,12:00 PM,2.0 GW,5.7 GW,₹1.79,₹0.35,₹2.64,High Solar/Afternoon Load
+Kanpur,12:30 PM,1.9 GW,5.4 GW,₹1.88,₹0.35,₹2.73,High Solar/Afternoon Load
+Kanpur,01:00 PM,2.0 GW,5.6 GW,₹1.96,₹0.36,₹2.82,High Solar/Afternoon Load
+Kanpur,01:30 PM,2.0 GW,5.6 GW,₹2.04,₹0.36,₹2.90,High Solar/Afternoon Load
+Kanpur,02:00 PM,2.0 GW,5.2 GW,₹2.12,₹0.38,₹3.00,High Solar/Afternoon Load
+Kanpur,02:30 PM,2.0 GW,5.2 GW,₹2.22,₹0.38,₹3.10,High Solar/Afternoon Load
+Kanpur,03:00 PM,1.9 GW,5.3 GW,₹2.31,₹0.36,₹3.17,High Solar/Afternoon Load
+Kanpur,03:30 PM,1.9 GW,5.1 GW,₹2.36,₹0.37,₹3.23,High Solar/Afternoon Load
+Kanpur,04:00 PM,2.0 GW,5.3 GW,₹2.45,₹0.38,₹3.33,High Solar/Afternoon Load
+Kanpur,04:30 PM,2.0 GW,4.5 GW,₹3.51,₹0.44,₹4.45,High Solar/Afternoon Load
+Kanpur,05:00 PM,2.0 GW,3.9 GW,₹5.67,₹0.51,₹6.68,Sunset Transition
+Kanpur,05:30 PM,2.0 GW,2.8 GW,₹7.73,₹0.71,₹8.94,Sunset Transition
+Kanpur,06:00 PM,2.4 GW,2.2 GW,₹10.00,₹1.09,₹11.59,Evening Peak Stress
+Kanpur,06:30 PM,2.4 GW,2.0 GW,₹10.00,₹1.20,₹11.70,Evening Peak Stress
+Kanpur,07:00 PM,2.4 GW,1.8 GW,₹9.88,₹1.33,₹11.71,Evening Peak Stress
+Kanpur,07:30 PM,2.5 GW,1.7 GW,₹10.00,₹1.47,₹11.97,Evening Peak Stress
+Kanpur,08:00 PM,2.5 GW,1.5 GW,₹10.00,₹1.67,₹12.17,Evening Peak Stress
+Kanpur,08:30 PM,2.5 GW,1.5 GW,₹9.83,₹1.67,₹12.00,Evening Peak Stress
+Kanpur,09:00 PM,2.5 GW,1.6 GW,₹10.00,₹1.56,₹12.06,Evening Peak Stress
+Kanpur,09:30 PM,2.5 GW,1.5 GW,₹10.00,₹1.67,₹12.17,Evening Peak Stress
+Kanpur,10:00 PM,2.4 GW,1.6 GW,₹9.88,₹1.50,₹11.88,Evening Peak Stress
+Kanpur,10:30 PM,1.4 GW,1.8 GW,₹8.16,₹0.78,₹9.44,Night Load
+Kanpur,11:00 PM,1.4 GW,1.5 GW,₹6.97,₹0.93,₹8.40,Night Load
+Kanpur,11:30 PM,1.4 GW,1.7 GW,₹5.88,₹0.82,₹7.20,Night Load
+Kanpur,12:00 AM,1.3 GW,1.8 GW,₹4.46,₹0.72,₹5.68,Night Load
