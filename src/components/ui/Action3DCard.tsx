@@ -16,9 +16,9 @@ interface Action3DCardProps {
   progress: number;
   icon: React.ReactNode;
   iconBgColor: string;
-  /** Action-based CTA label derived from price context (e.g. "Start Now", "Avoid Now"). */
+ 
   cta?: string;
-  /** Optional click handler — used by ActionEngine to navigate to /devices. */
+  
   onCtaClick?: () => void;
 }
 
@@ -45,7 +45,7 @@ export function Action3DCard({
     <div className={`perspective-1000 w-80 shrink-0 transition-opacity duration-700 ${expired ? "opacity-60 saturate-50 pointer-events-none scale-95" : "opacity-100"}`}>
       <div className="relative group transform-style-3d transition-all duration-500 hover:rotate-x-2 hover:-rotate-y-3 bg-[color:var(--card-bg)] backdrop-blur-lg border border-[color:var(--glass-border)] rounded-2xl p-5 shadow-sm hover:shadow-2xl hover:-translate-y-1 flex flex-col gap-4">
         
-        {/* Header: Icon, Time, Status */}
+        
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6 ${iconBgColor} dark:bg-opacity-20`}>
@@ -64,7 +64,7 @@ export function Action3DCard({
           </span>
         </div>
 
-        {/* Body: Title & Details */}
+        
         <div>
           <h3 className="text-[color:var(--color-azure)] font-bold text-lg mb-1 leading-tight font-display tracking-tight transition-colors">
             {title}
@@ -72,14 +72,14 @@ export function Action3DCard({
           <p className="text-sm text-slate-500 dark:text-slate-400 leading-snug font-medium">{description}</p>
         </div>
 
-        {/* Savings Box */}
+       
         <div className={`mt-2 rounded-xl py-3 px-4 flex items-baseline gap-1.5 ${savingBgLine} bg-opacity-20 dark:bg-opacity-10 border border-white/10`}>
           <span className={`font-bold font-display text-xs uppercase tracking-widest ${savingColor}`}>{savingText}</span>
           <span className={`font-black font-display text-xl ${savingColor}`}>{savingValue}</span>
           {savingUnit && <span className={`text-xs font-bold ${savingColor} uppercase tracking-tighter`}>{savingUnit}</span>}
         </div>
 
-        {/* Progress Bar & Footer */}
+      
         <div className="mt-2">
           <div className="flex justify-between text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1.5">
             <span>Window Utilization</span>
@@ -93,7 +93,7 @@ export function Action3DCard({
           </div>
         </div>
 
-        {/* Action Button */}
+        
         <button
           onClick={onCtaClick}
           className={`mt-2 w-full py-3 rounded-xl font-bold transition-all duration-300 transform active:scale-95 ${

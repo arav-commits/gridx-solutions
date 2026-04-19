@@ -1,9 +1,7 @@
-/**
- * Utility to handle IST (India Standard Time) logic
- */
+
 
 export const getISTTime = (): Date => {
-  // Returns a Date object adjusted to IST
+
   const now = new Date();
   return new Date(now.toLocaleString("en-US", { timeZone: "Asia/Kolkata" }));
 };
@@ -22,15 +20,15 @@ export const getSecondsUntilNextInterval = (): number => {
   const minutes = now.getMinutes();
   const seconds = now.getSeconds();
 
-  // Next interval is either the top of the hour or the 30-minute mark
+
   const minutesToNext = 30 - (minutes % 30);
   
-  // Convert minutes to seconds and subtract existing seconds
+  
   return (minutesToNext * 60) - seconds;
 };
 
 export const isTimeExpired = (timeRange: string): boolean => {
-  // Example: "6:00 - 6:30"
+  
   try {
     const [startStr, endStr] = timeRange.split(" - ");
     const now = getISTTime();

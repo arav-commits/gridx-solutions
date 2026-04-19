@@ -37,7 +37,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => {
-    // Basic route guard (Client-side)
+    
     if (isInitialized) {
       if (!user && pathname !== "/login") {
         router.push("/login");

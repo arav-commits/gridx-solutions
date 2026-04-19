@@ -15,7 +15,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
-    // Load preference from localStorage
+    
     const savedTheme = localStorage.getItem("gridx-theme") as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
