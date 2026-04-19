@@ -6,7 +6,7 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { useAuth } from "@/context/AuthContext";
 import { CLUSTERS, Cluster } from "@/data/mockData";
 import { supabase } from "@/lib/supabaseClient";
-import { saveUserProfile } from "./actions";
+
 
 export default function LoginPage() {
   const [step, setStep] = useState(1);
@@ -87,22 +87,9 @@ export default function LoginPage() {
     if (foundCluster) {
       setLoading(true);
       
-      // Save profile to Supabase users table
-      const { data: userSession } = await supabase.auth.getSession();
-      if (userSession.session?.user) {
-        const result = await saveUserProfile({
-          id: userSession.session.user.id,
-          name: formData.name,
-          phone: formData.phone,
-          state: formData.state,
-          city: formData.city,
-          cluster_id: parseInt(foundCluster.id.replace(/\D/g, ''), 10) || 1
-        });
-        
-        if (!result.success) {
-          console.error("[GridX] Failed to save user profile to Supabase via Action:", result.error);
-        }
-      }
+      // Note: Database persistence removed per user request to bypass recurring issues.
+      // Profile data is now only stored in local AuthContext.
+
 
       login({
         name: formData.name,
