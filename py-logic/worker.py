@@ -175,6 +175,8 @@ def run_loop():
             label = DATA[index]["time"]
             price = compute_price_by_index(index)
 
+            ok = upsert_slot(today, index)
+
             if ok:
                 print(f"[OK] [{current.strftime('%I:%M:%S %p')}] Pushed slot {index} ({label}) -> Rs {price}")
             else:
