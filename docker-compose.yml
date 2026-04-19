@@ -1,31 +1,16 @@
-version: "3.9"
+version: '3.8'
 
 services:
-  # ── Next.js Frontend ────────────────────────────────────────────────────────
+  backend:
+    build: ./py-logic
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+
   frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      args:
-        NEXT_PUBLIC_SUPABASE_URL: ${NEXT_PUBLIC_SUPABASE_URL}
-        NEXT_PUBLIC_SUPABASE_ANON_KEY: ${NEXT_PUBLIC_SUPABASE_ANON_KEY}
+    build: .
     ports:
       - "3000:3000"
-    environment:
-      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
-      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${NEXT_PUBLIC_SUPABASE_ANON_KEY}
-      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
-    restart: unless-stopped
-
-  # ── Python Price Worker ─────────────────────────────────────────────────────
-  price-worker:
-    build:
-      context: ./py-logic
-      dockerfile: Dockerfile
-    environment:
-      - NEXT_PUBLIC_SUPABASE_URL=${NEXT_PUBLIC_SUPABASE_URL}
-      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
-      - TZ=Asia/Kolkata
-    restart: unless-stopped
     depends_on:
-      - frontend
+      - backend
