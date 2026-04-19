@@ -16,7 +16,7 @@ SUPABASE_URL = os.getenv("NEXT_PUBLIC_SUPABASE_URL") or os.getenv("SUPABASE_URL"
 SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 
 if not SUPABASE_URL or not SUPABASE_KEY:
-    print("❌ FATAL: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set in environment.")
+    print("[ERROR] FATAL: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY must be set in environment.")
     print("   Set them in ../.env.local or as Docker env vars.")
     exit(1)
 
@@ -25,32 +25,23 @@ IST = pytz.timezone("Asia/Kolkata")
 
 
 def now_ist() -> datetime.datetime:
-    """Current time in IST, timezone-aware."""
+   
     return datetime.datetime.now(IST)
 
 
 def slot_index_from_time(dt: datetime.datetime) -> int:
-    """
-    Convert an IST datetime to a 0–47 slot index.
-    00:00 → 0, 00:30 → 1, 01:00 → 2, …, 23:30 → 47
-    """
+    
     return dt.hour * 2 + (1 if dt.minute >= 30 else 0)
 
 
 def slot_boundary(dt: datetime.datetime) -> datetime.datetime:
-    """
-    Round an IST datetime DOWN to its slot boundary.
-    e.g. 04:17 → 04:00, 04:45 → 04:30
-    """
+    
     minute = 30 if dt.minute >= 30 else 0
     return dt.replace(minute=minute, second=0, microsecond=0)
 
 
 def next_slot_boundary(dt: datetime.datetime) -> datetime.datetime:
-    """
-    Compute the NEXT slot boundary after `dt`.
-    e.g. 04:17 → 04:30, 04:45 → 05:00
-    """
+    
     if dt.minute < 30:
         nxt = dt.replace(minute=30, second=0, microsecond=0)
     else:
@@ -60,15 +51,12 @@ def next_slot_boundary(dt: datetime.datetime) -> datetime.datetime:
 
 
 def ist_date_today() -> datetime.date:
-    """Current date in IST."""
+   
     return now_ist().date()
 
 
 def slot_to_utc_timestamp(date: datetime.date, index: int) -> str:
-    """
-    Convert (date, slot_index) to a UTC ISO timestamp string.
-    e.g. (2026-04-19, 0) → IST 00:00 → UTC 18:30 previous day
-    """
+    
     hour = index // 2
     minute = (index % 2) * 30
     ist_dt = IST.localize(datetime.datetime(date.year, date.month, date.day, hour, minute, 0))
@@ -77,11 +65,7 @@ def slot_to_utc_timestamp(date: datetime.date, index: int) -> str:
 
 
 def upsert_slot(date: datetime.date, index: int) -> bool:
-    """
-    Compute and upsert a price for the given (date, slot_index).
-    Uses ON CONFLICT (slot_date, slot_index) DO UPDATE — fully idempotent.
-    Returns True on success, False on failure.
-    """
+   
     row = DATA[index]
     price = compute_price_by_index(index)
     slot_time_utc = slot_to_utc_timestamp(date, index)
@@ -106,22 +90,19 @@ def upsert_slot(date: datetime.date, index: int) -> bool:
             return True
         except Exception as e:
             err = str(e)[:120]
-            print(f"  ⚠️  Attempt {attempt + 1}/{max_retries} failed: {err}")
+            print(f"  [WARN] Attempt {attempt + 1}/{max_retries} failed: {err}")
             time.sleep(2 * (attempt + 1))
 
     return False
 
 
 def backfill_today():
-    """
-    On startup, ensure all past slots for today exist in the DB.
-    This handles crash recovery — if the worker was down, past slots get filled.
-    """
+    
     today = ist_date_today()
     current = now_ist()
     current_index = slot_index_from_time(current)
 
-    print(f"📋 Backfilling today ({today}) — slots 0 to {current_index}...")
+    print(f"[INFO] Backfilling today ({today}) - slots 0 to {current_index}...")
 
 
     try:
@@ -133,7 +114,7 @@ def backfill_today():
         )
         existing_indices = set(r["slot_index"] for r in existing.data) if existing.data else set()
     except Exception as e:
-        print(f"  ⚠️  Could not check existing slots: {str(e)[:100]}")
+        print(f"  [WARN] Could not check existing slots: {str(e)[:100]}")
         existing_indices = set()
 
     filled = 0
@@ -144,14 +125,14 @@ def backfill_today():
                 filled += 1
                 label = DATA[idx]["time"]
                 price = compute_price_by_index(idx)
-                print(f"  ✅ Backfilled slot {idx} ({label}) → ₹{price}")
+                print(f"  [OK] Backfilled slot {idx} ({label}) -> Rs {price}")
             else:
-                print(f"  ❌ Failed to backfill slot {idx}")
+                print(f"  [FAIL] Failed to backfill slot {idx}")
 
     if filled == 0:
         print("  ℹ️  All past slots already exist. No backfill needed.")
     else:
-        print(f"  📊 Backfilled {filled} missing slot(s).")
+        print(f"  [INFO] Backfilled {filled} missing slot(s).")
 
 
 
@@ -159,9 +140,9 @@ def backfill_today():
 def test_connection():
     try:
         res = supabase.table("price_logs").select("id").limit(1).execute()
-        print("✅ Supabase connection OK — price_logs table accessible")
+        print("[OK] Supabase connection OK - price_logs table accessible")
     except Exception as e:
-        print(f"❌ Supabase connection failed: {e}")
+        print(f"[ERROR] Supabase connection failed: {e}")
         print("   Make sure the price_logs table exists. Run the SQL migration first.")
         exit(1)
 
@@ -174,7 +155,7 @@ def wait_for_next_slot():
     """
     target = next_slot_boundary(now_ist())
     label = target.strftime("%I:%M %p")
-    print(f"⏳ Waiting for next slot boundary: {label} IST...")
+    print(f"[WAIT] Waiting for next slot boundary: {label} IST...")
 
     while True:
         remaining = (target - now_ist()).total_seconds()
@@ -194,22 +175,21 @@ def run_loop():
             label = DATA[index]["time"]
             price = compute_price_by_index(index)
 
-            ok = upsert_slot(today, index)
             if ok:
-                print(f"✅ [{current.strftime('%I:%M:%S %p')}] Pushed slot {index} ({label}) → ₹{price}")
+                print(f"[OK] [{current.strftime('%I:%M:%S %p')}] Pushed slot {index} ({label}) -> Rs {price}")
             else:
-                print(f"❌ [{current.strftime('%I:%M:%S %p')}] Failed to push slot {index}")
+                print(f"[FAIL] [{current.strftime('%I:%M:%S %p')}] Failed to push slot {index}")
 
             wait_for_next_slot()
 
         except Exception as e:
-            print(f"❌ Loop error: {e}")
+            print(f"[ERROR] Loop error: {e}")
 
             time.sleep(30)
 
 
 if __name__ == "__main__":
-    print("🚀 GridX Price Worker — Starting...")
+    print("Starting GridX Price Worker...")
     print(f"   Time: {now_ist().strftime('%Y-%m-%d %I:%M:%S %p')} IST")
     print(f"   Supabase: {SUPABASE_URL}")
     print()
@@ -218,7 +198,7 @@ if __name__ == "__main__":
     backfill_today()
 
     print()
-    print("🔁 Entering main loop — will push prices at every HH:00 and HH:30...")
+    print("Entering main loop - will push prices at every HH:00 and HH:30...")
     print()
 
     run_loop()

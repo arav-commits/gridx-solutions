@@ -1,11 +1,7 @@
 import { getISTTime } from "@/utils/time";
 
-/**
- * PRICING_DATA — full 48-slot dataset matching price_data.py exactly.
- * This is a LOCAL FALLBACK. The primary source of truth is Supabase
- * (populated by the Python worker). This data is used only when the
- * API is unreachable.
- */
+
+
 export const PRICING_DATA = [
   { time: "12:00 AM", demand: 9.6, supply: 8.6, pbase: 5.12 },
   { time: "12:30 AM", demand: 9.4, supply: 9.0, pbase: 4.76 },
@@ -85,27 +81,21 @@ function parseTimeToMinutes(timeStr: string): number {
   return hours * 60 + minutes;
 }
 
-/**
- * Local fallback price computation — mirrors the Python formula exactly:
- *   price = pbase + (demand / supply) + 0.5
- *   clamped to [0, 15]
- *
- * Used only when the Supabase API is unreachable.
- */
+
 export function getCurrentPricingData(): PriceData {
   const now = getISTTime();
   const currentMinutes = now.getHours() * 60 + now.getMinutes();
 
-  // Find the nearest 30 minute interval backwards (e.g. 14:15 -> 14:00)
+
   const intervalMinutes = currentMinutes - (currentMinutes % 30);
 
-  // Find the matching row in data
+
   let matchedRow = PRICING_DATA.find((row) => parseTimeToMinutes(row.time) === intervalMinutes);
 
   let offPeak = false;
   if (!matchedRow) {
     offPeak = true;
-    // Fallback to the 12:00 AM row (first entry)
+
     matchedRow = PRICING_DATA[0];
   }
 
@@ -113,7 +103,7 @@ export function getCurrentPricingData(): PriceData {
   const supply = matchedRow.supply;
   const pbase = matchedRow.pbase;
 
-  // Compute price — same formula as price_data.py
+
   let price = pbase;
   if (supply !== 0) {
     const dynamicImpact = demand / supply;
@@ -122,24 +112,22 @@ export function getCurrentPricingData(): PriceData {
   price = Math.min(Math.max(price, 0), 15);
   price = Math.round(price * 100) / 100;
 
-  // Compute Status
-  let status: "surplus" | "shortage" | "balanced" = "balanced";
-  let message = "System is stable.";
 
-  if (supply > demand) {
+  if (price <= 5) {
     status = "surplus";
-    message = "Electricity is cheaper now. You can increase usage.";
-  } else if (demand > supply) {
+    message = "Grid stable. Electricity is cheaper now.";
+  } else if (price <= 8) {
+    status = "balanced";
+    message = "Moderate demand. Try to shift heavy loads.";
+  } else {
     status = "shortage";
     message = "High demand detected. Reduce usage to save cost.";
-  } else {
-    status = "balanced";
-    message = "System is stable.";
   }
 
   if (offPeak) {
-    message = "Off-peak hours — showing last known rate.";
+    message = "Off-peak hours — " + message;
   }
+
 
   return {
     time: matchedRow.time,

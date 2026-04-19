@@ -65,19 +65,18 @@ export async function GET() {
     let demandLevel = "Low Demand";
     let subtitle = `Load ${isTrendRising ? '↑' : '↓'} in last 30 min · Voltage stable`;
 
-    if (currentPrice >= 3 && currentPrice < 5) {
+    if (currentPrice <= 5) {
       gridStatusName = "Grid Stable"; zoneColor = "green"; demandLevel = "Low Demand";
-    } else if (currentPrice >= 5 && currentPrice < 7) {
+    } else if (currentPrice <= 8) {
       gridStatusName = "Moderate Load"; zoneColor = "yellow"; demandLevel = "Moderate Demand";
-    } else if (currentPrice >= 7 && currentPrice < 9) {
+    } else if (currentPrice <= 10) {
       gridStatusName = "High Load"; zoneColor = "red"; demandLevel = "High Demand";
       subtitle = "High load — increasing demand.";
-    } else if (currentPrice >= 9) {
+    } else {
       gridStatusName = "Very High Load"; zoneColor = "red"; demandLevel = "Very High Demand";
       subtitle = "Critical load — reduce usage immediately.";
-    } else {
-      gridStatusName = "Grid Stable"; zoneColor = "green"; demandLevel = "Low Demand";
     }
+
 
     let generalMessage = "System is stable.";
     let statusLabel = "balanced";

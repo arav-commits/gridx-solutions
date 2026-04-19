@@ -34,25 +34,26 @@ type TimelineSlot = {
 
 
 function classifySlot(price: number): { label: string; dot: string } {
-  if (price <= 6) return { label: "Low",      dot: "🟢" };
-  if (price < 8)  return { label: "Moderate", dot: "🟡" };
-  return             { label: "High",     dot: "🔴" };
+  if (price <= 5) return { label: "Stable", dot: "🟢" };
+  if (price <= 8) return { label: "Moderate", dot: "🟡" };
+  if (price <= 10) return { label: "High", dot: "🔴" };
+  return { label: "Very High", dot: "🔴" };
 }
 
 
 
 export default function Home() {
-  // Live price — from Supabase API, falling back to local computation
+
   const [livePrice, setLivePrice] = useState<number | null>(null);
   const [livePriceTime, setLivePriceTime] = useState<string>("");
-  // Grid health info from Supabase
+
   const [gridUi, setGridUi] = useState<GridUiData | null>(null);
   const [loading, setLoading] = useState(true);
-  // Deep Insights panel
+
   const [insightOpen, setInsightOpen] = useState(false);
   const [timeline, setTimeline] = useState<TimelineSlot[]>([]);
 
-  
+
   const fetchLiveData = useCallback(async () => {
     try {
       const res = await fetch('/api/prices/current', { cache: 'no-store' });
@@ -78,19 +79,33 @@ export default function Home() {
 
 
     const local = getCurrentPricingData();
-    setLivePrice(local.price);
+    const lp = local.price;
+    setLivePrice(lp);
     setLivePriceTime(local.last_updated);
+
+   
+    let gs = "Grid Stable", zc = "green", dl = "Low Demand";
+    if (lp <= 5) {
+      gs = "Grid Stable"; zc = "green"; dl = "Low Demand";
+    } else if (lp <= 8) {
+      gs = "Moderate Load"; zc = "yellow"; dl = "Moderate Demand";
+    } else if (lp <= 10) {
+      gs = "High Load"; zc = "red"; dl = "High Demand";
+    } else {
+      gs = "Very High Load"; zc = "red"; dl = "Very High Demand";
+    }
+
     setGridUi({
-      gridStatusName: local.status === "surplus" ? "Grid Stable" : local.status === "shortage" ? "High Load" : "Moderate Load",
-      zoneColor: local.status === "surplus" ? "green" : local.status === "shortage" ? "red" : "yellow",
-      demandLevel: local.status === "surplus" ? "Low Demand" : local.status === "shortage" ? "High Demand" : "Moderate Demand",
+      gridStatusName: gs,
+      zoneColor: zc,
+      demandLevel: dl,
       subtitle: local.message,
       trend: local.status === "shortage" ? "rising" : "falling",
     });
     setLoading(false);
   }, []);
 
-  
+
   const fetchTimeline = useCallback(async () => {
     try {
       const res = await fetch('/api/prices/history', { cache: 'no-store' });
@@ -138,7 +153,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    // Initial fetch
+
     fetchLiveData();
     fetchTimeline();
 
@@ -169,7 +184,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-[color:var(--background)] transition-colors duration-500 relative overflow-x-hidden">
-      
+
       {/* Background ambient accents */}
       <div className="fixed top-[-10%] left-[-10%] w-[50%] h-[50%] rounded-full bg-emerald-100/30 dark:bg-emerald-900/10 blur-[120px] -z-10 pointer-events-none"></div>
       <div className="fixed top-[20%] right-[-5%] w-[40%] h-[50%] rounded-full bg-blue-100/20 dark:bg-blue-900/10 blur-[120px] -z-10 pointer-events-none"></div>
@@ -178,13 +193,13 @@ export default function Home() {
       <Navbar />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6 w-full">
-        
-        {/* Cluster status */}
+
+
         <ClusterStatusBar />
 
-        {/* Top Panels */}
+
         <div className="flex flex-col lg:flex-row gap-6 mt-2">
-          
+
           <GridStatusPanel
             ui={uiData}
           />
@@ -195,10 +210,9 @@ export default function Home() {
           />
         </div>
 
-        {/* Action Engine — receives live price; all card savings computed from it */}
+
         <ActionEngine currentPrice={livePrice} />
 
-        {/* Call to action bar */}
         <div className="flex justify-center mt-4">
           <button
             onClick={() => {
@@ -208,9 +222,8 @@ export default function Home() {
             className="group flex items-center gap-3 bg-[color:var(--glass-bg)] hover:bg-white/60 dark:hover:bg-slate-800/60 transition-all backdrop-blur-md border border-[color:var(--glass-border)] shadow-md rounded-full px-8 py-3.5 hover:scale-105 active:scale-95"
           >
             <BsChevronUp
-              className={`text-slate-400 transition-transform duration-300 ${
-                insightOpen ? "rotate-180" : "group-hover:-translate-y-1"
-              }`}
+              className={`text-slate-400 transition-transform duration-300 ${insightOpen ? "rotate-180" : "group-hover:-translate-y-1"
+                }`}
             />
             <span className="font-bold text-[color:var(--color-azure)] font-display tracking-tight">
               View Deep Insights
@@ -221,10 +234,10 @@ export default function Home() {
           </button>
         </div>
 
-        {/* ── Today's Price Timeline panel (from Supabase) ── */}
+
         {insightOpen && (
           <div className="bg-[color:var(--glass-bg)] backdrop-blur-lg border border-[color:var(--glass-border)] rounded-2xl p-6 shadow-sm">
-            {/* Header */}
+
             <div className="flex items-center justify-between mb-5">
               <div>
                 <h3 className="font-bold font-display text-[color:var(--color-azure)] text-lg">
@@ -235,13 +248,13 @@ export default function Home() {
                 </p>
               </div>
               <div className="flex gap-4 text-xs font-bold text-slate-500">
-                <span>🟢 Low ≤₹6</span>
+                <span>🟢 Stable ≤₹5</span>
                 <span>🟡 Moderate ₹6–8</span>
-                <span>🔴 High ≥₹8</span>
+                <span>🔴 High &gt;₹8</span>
               </div>
             </div>
 
-            {/* Timeline rows — always 48 slots */}
+
             {timeline.length === 0 ? (
               <div className="text-center py-10 text-slate-400 text-sm">
                 Loading timeline data...
@@ -257,20 +270,19 @@ export default function Home() {
                   return (
                     <div
                       key={slot.slotIndex}
-                      className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm border transition-colors ${
-                        slot.isCurrent
-                          ? "bg-[color:var(--color-azure)]/10 border-[color:var(--color-azure)]/20"
-                          : isPending
-                            ? "opacity-50 border-transparent"
-                            : "border-transparent hover:border-[color:var(--glass-border)]"
-                      }`}
+                      className={`flex items-center gap-3 rounded-xl px-4 py-2.5 text-sm border transition-colors ${slot.isCurrent
+                        ? "bg-[color:var(--color-azure)]/10 border-[color:var(--color-azure)]/20"
+                        : isPending
+                          ? "opacity-50 border-transparent"
+                          : "border-transparent hover:border-[color:var(--glass-border)]"
+                        }`}
                     >
-                      {/* Time slot label */}
+
                       <span className="text-xs font-bold tabular-nums text-slate-400 w-24 shrink-0">
                         {slot.label}
                       </span>
 
-                      {/* Price or Coming Soon */}
+
                       {hasPrice ? (
                         <>
                           <span className="font-bold text-[color:var(--foreground)] w-28 shrink-0">
@@ -290,7 +302,7 @@ export default function Home() {
                         </span>
                       )}
 
-                      {/* Tags */}
+
                       <div className="flex gap-1.5 ml-auto">
                         {slot.isCurrent && (
                           <span className="text-[10px] font-black tracking-wider px-2 py-0.5 bg-[color:var(--color-azure)]/20 text-[color:var(--color-azure)] rounded-full">

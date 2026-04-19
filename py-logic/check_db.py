@@ -9,7 +9,7 @@ URL = os.getenv("NEXT_PUBLIC_SUPABASE_URL")
 KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY")
 
 if not URL or not KEY:
-    print("❌ Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in env")
+    print("[ERROR] Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY in env")
     exit(1)
 
 sb = create_client(URL, KEY)
@@ -19,7 +19,7 @@ try:
     r1 = sb.table("price_logs").select("*").order("slot_date", desc=True).order("slot_index", desc=True).limit(10).execute()
     print(f"  Row count: {len(r1.data)}")
     for row in r1.data:
-        print(f"  [{row['slot_date']} | slot {row['slot_index']:2d}] price=₹{row['price']}, demand={row['demand']}, supply={row['supply']}")
+        print(f"  [{row['slot_date']} | slot {row['slot_index']:2d}] price=Rs {row['price']}, demand={row['demand']}, supply={row['supply']}")
 except Exception as e:
     print(f"  ERROR reading price_logs: {str(e)[:150]}")
 
@@ -38,6 +38,6 @@ try:
         if missing:
             print(f"  Missing past slots: {sorted(missing)}")
         else:
-            print(f"  No gaps in past slots ✅")
+            print(f"  No gaps in past slots [OK]")
 except Exception as e:
     print(f"  ERROR: {str(e)[:150]}")

@@ -13,7 +13,7 @@ interface NextPricePanelProps {
 export function NextPricePanel({ price, trend = "falling" }: NextPricePanelProps) {
   const [timeLeft, setTimeLeft] = useState(0);
 
-  // ⏱️ Timer logic
+  // Timer logic
   useEffect(() => {
     const updateTime = () => {
       setTimeLeft(getSecondsUntilNextInterval());
